@@ -1,0 +1,57 @@
+urxvt.perl-ext-common: default,eval,resize-font
+URxvt.font: xft:iosevka:size=12
+URxvt.scrollBar: false
+
+URxvt.keysym.C-minus:     resize-font:smaller
+URxvt.keysym.C-plus:      resize-font:reset
+URxvt.keysym.C-equal:     resize-font:bigger
+URxvt.keysym.C-question:  resize-font:show
+
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+
+
+!! Colorscheme
+! special
+*.foreground: #dfdfdd
+*.background: #000000
+*.cursorColor: #dfdfdd
+
+! black
+*.color0: #263640
+*.color8: #4a697d
+
+! red
+*.color1: #d12f2c
+*.color9: #fa3935
+
+! green
+*.color2: #3e8701
+*.color10: #46ab6e
+
+! yellow
+*.color3: #e5b560
+*.color11: #e5b560
+
+! blue
+*.color4: #2587cc
+*.color12: #2ca2f5
+
+! magenta
+*.color5: #696ebf
+*.color13: #8086e8
+
+! cyan
+*.color6: #289c93
+*.color14: #33c5ba
+
+! white
+*.color7: #bfbaac
+*.color15: #fdf6e3
+
+URxvt.transparent: true
+URxvt.shading: 20
+Xcursor.size: 16
+
+
+

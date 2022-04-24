@@ -1,0 +1,8 @@
+[user]
+	email = labradordeil@mail.ru 
+	name = lalapopa
+[credential]
+	helper = cache
+[core]
+	exccludesfile = /home/lalapopa/.gitignore
+	excludesfile = /home/lalapopa/.gitignore
