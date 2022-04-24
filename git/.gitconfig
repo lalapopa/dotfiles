@@ -4,5 +4,5 @@
 [credential]
 	helper = cache
 [core]
-	exccludesfile = /home/lalapopa/.gitignore
-	excludesfile = /home/lalapopa/.gitignore
+	exccludesfile = /home/lalapopa/.dot-gitignore
+	excludesfile = /home/lalapopa/.dot-gitignore
