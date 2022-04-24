@@ -97,8 +97,8 @@ let g:vimtex_compiler_latexmk = {
 	\}
 
 " inkscape-figure run
-inoremap <C-f> <Esc>:!source ~/inkscape_shortcut.sh<CR><CR><Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
-nnoremap <C-f> <Esc>:!source ~/inkscape_shortcut.sh<CR><CR><Esc>: silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
+autocmd FileType tex inoremap <C-f> <Esc>:!source ~/inkscape_shortcut.sh<CR><CR><Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
+autocmd FileType tex nnoremap <C-f> <Esc>:!source ~/inkscape_shortcut.sh<CR><CR><Esc>: silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
 
 " Colorscheme
 let g:lightline = {
