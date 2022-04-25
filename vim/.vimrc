@@ -7,8 +7,8 @@ set expandtab
 set smartindent
 set scrolloff=8 
 set noshowmode
-
 syntax on
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -52,8 +52,11 @@ nnoremap N Nzzzv
 " Copy to clipboard
 vnoremap <C-c> "+y
 
+" Runtimepath 
 set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+=~/.vim/bundle/ultisnips
+set rtp+=~/.vim/my_snippets
+
 
 call vundle#begin()
 
@@ -77,8 +80,12 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-n>"
 let g:UltiSnipsJumpBackwardTrigger="<c-t>"
 let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "my_snippets"]
+
 
 syntax enable
+
+let g:vimtex_quickfix_open_on_warning = 0
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_compiler_method = 'latexmk'
 let g:vimtex_compiler_latexmk = {
