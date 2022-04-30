@@ -12,6 +12,90 @@ syntax on
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+" Runtimepath 
+set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/ultisnips
+set rtp+=~/.vim/my_snippets
+
+
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-fugitive'
+Plugin 'junegunn/seoul256.vim'
+Plugin 'itchyny/lightline.vim'
+Plugin 'lervag/vimtex'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'iamcco/markdown-preview.nvim' 
+Plugin 'ferrine/md-img-paste.vim'
+Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plugin 'junegunn/fzf.vim'
+
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-n>"
+let g:UltiSnipsJumpBackwardTrigger="<c-t>"
+let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "my_snippets"]
+
+syntax enable
+let g:vimtex_quickfix_open_on_warning = 0
+let g:vimtex_view_method = 'zathura'
+let g:vimtex_compiler_method = 'latexmk'
+let g:vimtex_compiler_latexmk = {
+	\ 'build_dir' : '',
+	\ 'callback' : 1,
+	\ 'continuous' : 1,
+	\ 'executable' : 'latexmk',
+	\ 'hooks' : [],
+	\ 'options' : [
+	\   '-verbose',
+	\   '-file-line-error',
+	\   '-synctex=1',
+	\   '-interaction=nonstopmode',
+	\	'-shell-escape',
+	\ ],
+	\}
+
+
+" Colorscheme
+let g:lightline = {
+	\ 'colorscheme': 'PaperColor',
+	\ 'active': {
+	\   'right': [ [ 'percent' ],
+	\              [ 'lineinfo' ],
+	\              [ 'fileformat', 'fileencoding', 'filetype'] ]
+	\ },
+	\ }
+let g:seoul256_background = 234
+colo seoul256
+
+let g:mdip_imgdir = 'figures'
+let g:mdip_imgname = 'img'
+
+" FZF setting 
+let g:fzf_layout = { 'down': '30%' }
+autocmd! FileType fzf
+autocmd  FileType fzf set laststatus=0 noshowmode noruler
+  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+
+function! Format_line(line)
+    let file = split(a:line, ":")[0]
+    let isosec = matchstr(file, '\d*')
+    let file_header = trim(trim(system(printf("head -1 %s", file))), "# ")
+    let input_string = printf("[%s](\/%s\/) %s", isosec, isosec, file_header)
+    execute 'normal! a'.input_string
+endfunction
+
+
+""""""""""""""
+"  mappings  "
+""""""""""""""
+
 " Disable Arrow keys in Normal mode
 map <up> <nop>
 map <down> <nop>
@@ -52,78 +136,18 @@ nnoremap N Nzzzv
 " Copy to clipboard
 vnoremap <C-c> "+y
 
-" Runtimepath 
-set rtp+=~/.vim/bundle/Vundle.vim
-set rtp+=~/.vim/bundle/ultisnips
-set rtp+=~/.vim/my_snippets
-
-
-call vundle#begin()
-
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-fugitive'
-Plugin 'junegunn/seoul256.vim'
-Plugin 'itchyny/lightline.vim'
-Plugin 'lervag/vimtex'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'iamcco/markdown-preview.nvim' 
-Plugin 'ferrine/md-img-paste.vim'
-Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plugin 'junegunn/fzf.vim'
-
-call vundle#end()            " required
-filetype plugin indent on    " required
-
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-n>"
-let g:UltiSnipsJumpBackwardTrigger="<c-t>"
-let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsSnippetDirectories=["UltiSnips", "my_snippets"]
-
-
-syntax enable
-
-let g:vimtex_quickfix_open_on_warning = 0
-let g:vimtex_view_method = 'zathura'
-let g:vimtex_compiler_method = 'latexmk'
-let g:vimtex_compiler_latexmk = {
-	\ 'build_dir' : '',
-	\ 'callback' : 1,
-	\ 'continuous' : 1,
-	\ 'executable' : 'latexmk',
-	\ 'hooks' : [],
-	\ 'options' : [
-	\   '-verbose',
-	\   '-file-line-error',
-	\   '-synctex=1',
-	\   '-interaction=nonstopmode',
-	\	'-shell-escape',
-	\ ],
-	\}
-
 " inkscape-figure run
 autocmd FileType tex inoremap <C-f> <Esc>:!source ~/inkscape_shortcut.sh<CR><CR><Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
 autocmd FileType tex nnoremap <C-f> <Esc>:!source ~/inkscape_shortcut.sh<CR><CR><Esc>: silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
 
-" Colorscheme
-let g:lightline = {
-	\ 'colorscheme': 'PaperColor',
-	\ 'active': {
-	\   'right': [ [ 'percent' ],
-	\              [ 'lineinfo' ],
-	\              [ 'fileformat', 'fileencoding', 'filetype'] ]
-	\ },
-	\ }
-
-let g:seoul256_background = 234
-colo seoul256
-
 " Image2markdown
 autocmd FileType markdown nmap <buffer><silent> <leader>p :call mdip#MarkdownClipboardImage()<CR>
-let g:mdip_imgdir = 'figures'
-let g:mdip_imgname = 'img'
+autocmd FileType markdown nnoremap <Leader>ll :MarkdownPreview<CR>
+
+" FZF
+nnoremap <silent> <Leader>f :Rg<CR>
+nnoremap <silent> <C-t> :Files<CR>
+autocmd FileType markdown nnoremap <Leader>r :call fzf#run({'source': 'rg .', 'sink': function('Format_line'), 'window': { 'width': 0.9, 'height': 0.6 }})<CR>
 
 
 
