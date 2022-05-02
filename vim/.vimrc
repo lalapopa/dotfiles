@@ -32,6 +32,7 @@ Plugin 'iamcco/markdown-preview.nvim'
 Plugin 'ferrine/md-img-paste.vim'
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
+Plugin 'chrisbra/csv.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
