@@ -43,6 +43,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-t>"
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "my_snippets"]
 
+" vimtex
 syntax enable
 let g:vimtex_quickfix_open_on_warning = 0
 let g:vimtex_view_method = 'zathura'
@@ -138,8 +139,8 @@ nnoremap N Nzzzv
 vnoremap <C-c> "+y
 
 " inkscape-figure run
-autocmd FileType tex inoremap <C-f> <Esc>:!source ~/inkscape_shortcut.sh<CR><CR><Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
-autocmd FileType tex nnoremap <C-f> <Esc>:!source ~/inkscape_shortcut.sh<CR><CR><Esc>: silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
+autocmd FileType tex inoremap <C-f> <Esc>:!source ~/.dotfiles/scripts/inkscape_shortcut.sh<CR><CR><Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
+autocmd FileType tex nnoremap <C-f> <Esc>:!source ~/.dotfiles/scripts/inkscape_shortcut.sh<CR><CR><Esc>: silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
 
 " Image2markdown
 autocmd FileType markdown nmap <buffer><silent> <leader>p :call mdip#MarkdownClipboardImage()<CR>
