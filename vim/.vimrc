@@ -33,6 +33,7 @@ Plugin 'ferrine/md-img-paste.vim'
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
 Plugin 'chrisbra/csv.vim'
+Plugin 'reedes/vim-lexical'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -64,18 +65,40 @@ let g:vimtex_compiler_latexmk = {
 	\}
 
 
-" Colorscheme
+" Statusbar 
 let g:lightline = {
-	\ 'colorscheme': 'PaperColor',
+	\ 'colorscheme': 'seoul256',
 	\ 'active': {
 	\   'right': [ [ 'percent' ],
 	\              [ 'lineinfo' ],
-	\              [ 'fileformat', 'fileencoding', 'filetype'] ]
-	\ },
-	\ }
+	\              [ 'fileformat', 'fileencoding', 'filetype'] ],
+    \
+    \   'left': [ [ 'mode', 'paste' ],
+    \             [ 'readonly', 'filename', 'gitbranch', 'modified' ] ]
+    \},
+    \ 'component_function': {
+    \   'gitbranch': 'FugitiveHead'
+    \ },
+    \ 'mode_map': {
+    \ 'n' : 'N',
+    \ 'i' : 'I',
+    \ 'R' : 'R',
+    \ 'v' : 'V',
+    \ 'V' : 'VL',
+    \ "\<C-v>": 'VB',
+    \ 'c' : 'C',
+    \ 's' : 'S',
+    \ 'S' : 'SL',
+    \ "\<C-s>": 'SB',
+    \ 't': 'T',
+    \ },
+    \ }
+
+" Colorscheme 
 let g:seoul256_background = 234
 colo seoul256
 
+" Markdown screenshots
 let g:mdip_imgdir = 'figures'
 let g:mdip_imgname = 'img'
 
@@ -93,6 +116,17 @@ function! Format_line(line)
     execute 'normal! a'.input_string
 endfunction
 
+" spell-check
+let g:spellfile_URL = 'https://ftp.nluug.nl/vim/runtime/spell'
+let g:lexical#spelllang = ['en_us','ru']
+
+augroup lexical
+  autocmd!
+  autocmd FileType markdown,mkd call lexical#init()
+  autocmd FileType tex call lexical#init()
+  autocmd FileType textile call lexical#init()
+  autocmd FileType text call lexical#init({ 'spell': 0 })
+augroup END
 
 """"""""""""""
 "  mappings  "
