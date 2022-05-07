@@ -184,7 +184,7 @@ bindsym --release Print exec import ~/ss.png && xclip -selection clipboard -t im
 exec_always --no-startup-id /home/lalapopa/.config/polybar/launch.sh
 
 # Change bg picture
-exec_always feh --bg-scale /home/lalapopa/Documents/trash/img/bg_black.jpg
+exec_always feh --bg-scale /home/lalapopa/Documents/trash/img/hu_tao_bg.png
 
 # Language changing
 exec "setxkbmap -layout us,ru"

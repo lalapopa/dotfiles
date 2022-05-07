@@ -1,6 +1,13 @@
 urxvt.perl-ext-common: default,eval,resize-font
-URxvt.font: xft:iosevka:size=12
+
+URxvt.font: xft:iosevka:size=12,xft:Symbola,xft:Noto Emoji:minspace=False
+
 URxvt.scrollBar: false
+URxvt.iso14755: false
+
+URxvt.cursorBlink: true
+URxvt.cursorColor: #dfdfdd
+URxvt.cursorUnderline: false
 
 URxvt.keysym.C-minus:     resize-font:smaller
 URxvt.keysym.C-plus:      resize-font:reset
