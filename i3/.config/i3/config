@@ -174,7 +174,7 @@ bindsym XF86MonBrightnessUp exec brightnessctl set +5% # increase screen brightn
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%- # decrease screen brightness
 
 # Suspend system using power button 
-bindsym XF86PowerOff exec --no-startup-id "systemctl suspend ; i3lock-fancy"
+bindsym XF86PowerOff exec --no-startup-id "systemctl suspend; i3lock"
 
 # Take area screenshot and copy to clipboard
 bindsym --release Print exec import ~/ss.png && xclip -selection clipboard -t image/png -i ~/ss.png && rm ~/ss.png 
@@ -191,5 +191,4 @@ exec "setxkbmap -option grp:win_space_toggle us,ru"
 
 # Monitor setup
 exec_always --no-startup-id /home/lalapopa/.screenlayout/left_monitor_active.sh
-
 

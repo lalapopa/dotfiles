@@ -7,6 +7,7 @@ set expandtab
 set smartindent
 set scrolloff=8 
 set noshowmode
+set cc=80
 syntax on
 
 set nocompatible              " be iMproved, required
