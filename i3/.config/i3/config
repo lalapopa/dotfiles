@@ -62,7 +62,7 @@ bindsym $mod+Shift+apostrophe split h
 bindsym $mod+shift+5 split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+shift+f fullscreen toggle
+bindsym $mod+ctrl+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -70,7 +70,7 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+shift+f floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+f focus mode_toggle
@@ -160,7 +160,7 @@ client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-col
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #e5b560
 
 # Lock screen
-bindsym $mod+shift+x exec i3lock --image ~/Documents/trash/img/gmdk_bg.png -t
+bindsym $mod+shift+x exec i3lock-fancy
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -174,8 +174,7 @@ bindsym XF86MonBrightnessUp exec brightnessctl set +5% # increase screen brightn
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%- # decrease screen brightness
 
 # Suspend system using power button 
-bindsym XF86PowerOff exec --no-startup-id "systemctl suspend ; i3lock --image ~/Documents/trash/img/gmdk_bg.png -t"
-
+bindsym XF86PowerOff exec --no-startup-id "systemctl suspend ; i3lock-fancy"
 
 # Take area screenshot and copy to clipboard
 bindsym --release Print exec import ~/ss.png && xclip -selection clipboard -t image/png -i ~/ss.png && rm ~/ss.png 
@@ -193,6 +192,4 @@ exec "setxkbmap -option grp:win_space_toggle us,ru"
 # Monitor setup
 exec_always --no-startup-id /home/lalapopa/.screenlayout/left_monitor_active.sh
 
-# Run scripts for Inkscape LaTeX input 
-#for_window [class="Inkscape"] exec /home/lalapopa/silly.sh 
 
