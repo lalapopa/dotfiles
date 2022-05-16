@@ -190,5 +190,5 @@ exec "setxkbmap -layout us,ru"
 exec "setxkbmap -option grp:win_space_toggle us,ru"
 
 # Monitor setup
-exec_always --no-startup-id /home/lalapopa/.screenlayout/left_monitor_active.sh
+exec_always --no-startup-id /home/lalapopa/.dotfiles/scripts/left_monitor_active.sh
 
