@@ -4,7 +4,7 @@ function get_last_note() {
     all_notes=$(ls -r "$NOTES_DIR" | grep -oP '\d{14}')
     notes_amount=$(echo "$all_notes" | wc -l)
     taking_note=$1
-    if [[ notes_amount -ge taking_note ]] && [[ ! -z "$taking_note" ]]
+    if [[ notes_amount -ge taking_note ]] && [[ ! -z "$taking_note" ]] && [[ "$taking_note" == ?(-)+([0-9]) ]] 
     then
         note_to_open=$(echo "$all_notes" | sed -n "${taking_note}p")
         open_note "$NOTES_DIR$note_to_open/$note_md"
