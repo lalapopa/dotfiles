@@ -1,6 +1,13 @@
+------------
+-  Python  -
+------------
+
 __pycache__
-nohup.out
-tags
+
+-----------
+-  LaTeX  -
+-----------
+
 .*.swp
 *.swp
 .*.*.swp
@@ -16,4 +23,10 @@ tags
 *.fls
 *.aux
 *.fdb_latexmk
+
+------------
+-  Others  -
+------------
+nohup.out
+tags
 

@@ -2,7 +2,7 @@
 
 sleep 3
 
-inkscape_pid=$(ps -ef | grep inkscape | grep svg | grep home | grep -oP '(?<=lalapopa)[ ]*\d+')
+inkscape_pid=$(ps -ef | grep inkscape | grep svg | grep home | awk '{print $2}')
 
 while [[ -n ${inkscape_pid} ]]
 do 
@@ -15,15 +15,15 @@ do
            count=$(ls -1 /tmp/*.tex 2>/dev/null | wc -l)
         done
     sleep 1
-    inkscape_pid=$(ps -ef | grep inkscape | grep svg | grep home | grep -oP '(?<=lalapopa)[ ]*\d+')
+    inkscape_pid=$(ps -ef | grep inkscape | grep svg | grep home | awk '{print $2}')
 done
 
-inkscape_shortcut_pid=$(ps -ef | grep python3 | grep inkscape-shortcut | grep -oP '(?<=lalapopa)[ ]*\d+')
+inkscape_shortcut_pid=$(ps -ef | grep python3 | grep inkscape-shortcut | awk '{print $2}') 
 
 if [ ! -z "$inkscape_shortcut_pid" ];
 then
     echo "$inkscape_shortcut_pid"
-    pkill -f 'python3 /home/lalapopa/.dotfiles/scripts/inkscape-shortcut-manager/main.py'
+    kill -15 "$inkscape_shortcut_pid"
     echo "shorcut killed" 
 fi
 

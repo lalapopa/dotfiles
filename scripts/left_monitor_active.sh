@@ -12,7 +12,7 @@ dis_switch=1
 con_switch=0
 
 
-all_process=$(ps -ef | grep bash | grep "/home/lalapopa/.screenlayout/left_monitor_active.sh" | awk '{print $2}')
+all_process=$(ps -ef | grep bash | grep "/home/lalapopa/.dotfiles/scripts/left_monitor_active.sh" | awk '{print $2}')
 process_amount=$(echo "${all_process}" | wc -l)
 
 if [ "$process_amount" -gt 2 ]; then
