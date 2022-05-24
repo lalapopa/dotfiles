@@ -1,6 +1,6 @@
 #!/usr/bin/env bash 
 
-function get_last_note() {
+get_last_note() {
     all_notes=$(ls -r "$NOTES_DIR" | grep -oP '\d{14}')
     notes_amount=$(echo "$all_notes" | wc -l)
     taking_note=$1
@@ -19,13 +19,13 @@ function get_last_note() {
     fi
 }
 
-function open_note() {
+open_note() {
     cd "$NOTES_DIR"
     vim "$1"
 }
 
 
-function list_all_notes() {
+list_all_notes() {
     all_notes=($(ls "$NOTES_DIR" | grep -oP '\d{14}'))
     if [ "$1" = "-t" ] 
     then
@@ -39,7 +39,7 @@ function list_all_notes() {
     fi
 }
 
-function give_help() {
+give_help() {
    echo "Eazy note taking thing."
    echo
    echo "Usage: noty [arguments]    create note"

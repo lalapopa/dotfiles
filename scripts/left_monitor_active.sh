@@ -1,10 +1,10 @@
 #!/bin/env bash  
 
-function display_connect() {
+display_connect() {
     xrandr --output eDP --primary --mode 1920x1080 --pos 973x1080 --rotate normal --output HDMI-A-0 --mode 1920x1080 --pos 0x0 --rotate normal --output DisplayPort-0 --off 
 }
 
-function display_disconnect() {
+display_disconnect() {
     xrandr --output HDMI-A-0 --off
 }
 
@@ -15,7 +15,7 @@ con_switch=0
 all_process=$(ps -ef | grep bash | grep "/home/lalapopa/.dotfiles/scripts/left_monitor_active.sh" | awk '{print $2}')
 process_amount=$(echo "${all_process}" | wc -l)
 
-if [ "$process_amount" -gt 2 ]; then
+if [[ "$process_amount" -gt 2 ]]; then
     echo "${all_process}" | head -"$(($process_amount-2))" | xargs kill -15
 fi
 
