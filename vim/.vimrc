@@ -39,6 +39,7 @@ Plugin 'reedes/vim-lexical'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+" UltiSnips
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-n>"
 let g:UltiSnipsJumpBackwardTrigger="<c-t>"
@@ -113,7 +114,7 @@ function! Format_line(line)
     let file = split(a:line, ":")[0]
     let isosec = matchstr(file, '\d*')
     let file_header = trim(trim(system(printf("head -1 %s", file))), "# ")
-    let input_string = printf("[%s](\/%s\/) %s", isosec, isosec, file_header)
+    let input_string = printf("* [%s](\/%s\/) %s", isosec, isosec, file_header)
     execute 'normal! a'.input_string
 endfunction
 
@@ -184,9 +185,7 @@ autocmd FileType markdown nnoremap <Leader>ll :MarkdownPreview<CR>
 " FZF
 nnoremap <silent> <Leader>f :Rg<CR>
 nnoremap <silent> <C-t> :Files<CR>
-autocmd FileType markdown nnoremap <Leader>r :call fzf#run({'source': 'rg .', 'sink': function('Format_line'), 'window': { 'width': 0.9, 'height': 0.6 }})<CR>
-
-
+autocmd FileType markdown nnoremap <Leader>r :call fzf#run({'source': 'rg -n ^ --color always', 'options': '--ansi --delimiter : --nth 3.. --preview "bat --style=full --color=always --highlight-line {2} {1}"', 'window': { 'width': 0.9, 'height': 0.6 }, 'sink': function('Format_line'), })<CR>
 
 " Background transparent 
 hi Normal guibg=NONE ctermbg=NONE
