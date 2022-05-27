@@ -18,7 +18,6 @@ dotfiles:
 	ln -snf $(CURDIR)/i3/.config/i3 $(HOME)/.config/;
 	ln -snf $(CURDIR)/polybar/.config/polybar $(HOME)/.config/;
 	ln -snf $(CURDIR)/rofi/.config/rofi $(HOME)/.config/;
-	sudo ln -snf $(CURDIR)/rofi/etc/rofi.conf /etc/;
 	ln -snf $(CURDIR)/tmux/.tmux.conf $(HOME);
 	ln -snf $(CURDIR)/vim/.vimrc $(HOME);
 	ln -snf $(CURDIR)/bash/.bashrc $(HOME);
