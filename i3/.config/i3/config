@@ -180,15 +180,15 @@ bindsym XF86PowerOff exec --no-startup-id "systemctl suspend; i3lock"
 bindsym --release Print exec import ~/ss.png && xclip -selection clipboard -t image/png -i ~/ss.png && rm ~/ss.png 
 
 # Polybar launch
-exec_always --no-startup-id /home/lalapopa/.config/polybar/launch.sh
+exec_always --no-startup-id ${HOME}/.config/polybar/launch.sh
 
 # Change bg picture
-exec_always feh --bg-scale /home/lalapopa/Documents/trash/img/earth.png
+exec_always feh --bg-scale ${HOME}/Documents/trash/img/earth.png
 
 # Language changing
 exec "setxkbmap -layout us,ru"
 exec "setxkbmap -option grp:win_space_toggle us,ru"
 
 # Monitor setup
-exec_always --no-startup-id /home/lalapopa/.dotfiles/scripts/left_monitor_active.sh
+exec_always --no-startup-id ${HOME}/.dotfiles/scripts/left_monitor_active.sh
 
