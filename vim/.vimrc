@@ -35,6 +35,7 @@ Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
 Plugin 'chrisbra/csv.vim'
 Plugin 'reedes/vim-lexical'
+Plugin 'psf/black'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -129,6 +130,14 @@ augroup lexical
   autocmd FileType textile call lexical#init()
   autocmd FileType text call lexical#init({ 'spell': 0 })
 augroup END
+
+" Black 
+
+augroup black_on_save
+    autocmd!
+    autocmd BufWritePre *.py Black
+augroup end
+
 
 """"""""""""""
 "  mappings  "

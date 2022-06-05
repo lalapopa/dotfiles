@@ -177,7 +177,7 @@ bindsym XF86MonBrightnessDown exec brightnessctl set 5%- # decrease screen brigh
 bindsym XF86PowerOff exec --no-startup-id "systemctl suspend; i3lock"
 
 # Take area screenshot and copy to clipboard
-bindsym --release Print exec import ~/ss.png && xclip -selection clipboard -t image/png -i ~/ss.png && rm ~/ss.png 
+bindsym --release Print exec import ~/Pictures/ss.png && xclip -selection clipboard -t image/png -i ~/Pictures/ss.png 
 
 # Polybar launch
 exec_always --no-startup-id ${HOME}/.config/polybar/launch.sh
