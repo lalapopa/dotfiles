@@ -36,6 +36,7 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'chrisbra/csv.vim'
 Plugin 'reedes/vim-lexical'
 Plugin 'psf/black'
+Plugin 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -132,12 +133,10 @@ augroup lexical
 augroup END
 
 " Black 
-
 augroup black_on_save
     autocmd!
     autocmd BufWritePre *.py Black
 augroup end
-
 
 """"""""""""""
 "  mappings  "
@@ -183,6 +182,10 @@ nnoremap N Nzzzv
 " Copy to clipboard
 vnoremap <C-c> "+y
 
+"""""""""""""""""""
+"  some commands  "
+"""""""""""""""""""
+
 " inkscape-figure run
 autocmd FileType tex inoremap <C-f> <Esc>:!source ~/.dotfiles/scripts/inkscape_shortcut.sh<CR><CR><Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
 autocmd FileType tex nnoremap <C-f> <Esc>:!source ~/.dotfiles/scripts/inkscape_shortcut.sh<CR><CR><Esc>: silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
@@ -195,6 +198,12 @@ autocmd FileType markdown nnoremap <Leader>ll :MarkdownPreview<CR>
 nnoremap <silent> <Leader>f :Rg<CR>
 nnoremap <silent> <C-t> :Files<CR>
 autocmd FileType markdown nnoremap <Leader>r :call fzf#run({'source': 'rg -n ^ --color always', 'options': '--ansi --delimiter : --nth 3.. --preview "bat --style=full --color=always --highlight-line {2} {1}"', 'window': { 'width': 0.9, 'height': 0.6 }, 'sink': function('Format_line'), })<CR>
+
+" Change indent for html, css  
+autocmd BufRead,BufNewFile *.htm,*.html,*.css setlocal tabstop=2 shiftwidth=2 softtabstop=2
+
+" Bracey
+autocmd FileType html nnoremap <Leader>ll :Bracey<CR>
 
 " Background transparent 
 hi Normal guibg=NONE ctermbg=NONE
