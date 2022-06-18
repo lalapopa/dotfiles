@@ -9,7 +9,7 @@ download_tools:
 		git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim; \
 	fi;
 	if [ ! -d "$(HOME)/.config" ]; then \
-		mkdir "$HOME/.config";
+		mkdir "$(HOME)/.config"; \
 	fi;
 	if [ ! -d "$(HOME)/.fzf" ]; then \
 		git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf; \
