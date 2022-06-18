@@ -60,7 +60,13 @@ then
     isosec=$(date -u +%Y%m%d%H%M%S)
     note_path="${NOTES_DIR}${isosec}"
 
-    cd "$NOTES_DIR"
+    if test -d "$NOTES_DIR"; then
+        cd "$NOTES_DIR"
+    else
+        echo "Notes directory: '$NOTES_DIR' not found. I'll create one."
+        mkdir "$NOTES_DIR"
+        cd "$NOTES_DIR"
+    fi
     mkdir "$note_path" && touch "$note_path/$note_md"
     vim "$note_path/$note_md"
     if [ ! -s "$note_path/$note_md" ]; then
