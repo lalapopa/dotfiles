@@ -20,7 +20,7 @@ done
 
 inkscape_shortcut_pid=$(ps -ef | grep python3 | grep inkscape-shortcut | awk '{print $2}') 
 
-if [[ ! -z "$inkscape_shortcut_pid" ]];
+if [[ -n "$inkscape_shortcut_pid" ]];
 then
     echo "$inkscape_shortcut_pid"
     kill -15 "$inkscape_shortcut_pid"

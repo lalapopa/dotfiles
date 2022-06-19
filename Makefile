@@ -4,7 +4,7 @@ SHELL := /usr/bin/bash
 all: download_tools dotfiles 
 
 download_tools: 
-	sudo apt-get update && sudo apt-get -y install vim tmux i3 git fzf rxvt-unicode polybar xclip ripgrep;
+	sudo -S apt-get update && sudo -S apt-get -y install vim tmux i3 git fzf rxvt-unicode polybar xclip ripgrep;
 	if [ ! -d "$(HOME)/.vim/bundle/Vundle.vim" ]; then \
 		git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim; \
 	fi;

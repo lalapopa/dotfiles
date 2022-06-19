@@ -4,7 +4,7 @@ get_last_note() {
     all_notes=$(ls -r "$NOTES_DIR" | grep -oP '\d{14}')
     notes_amount=$(echo "$all_notes" | wc -l)
     taking_note=$1
-    if [[ notes_amount -ge taking_note ]] && [[ ! -z "$taking_note" ]] && [[ "$taking_note" == ?(-)+([0-9]) ]] 
+    if [[ notes_amount -ge taking_note ]] && [[ -n "$taking_note" ]] && [[ "$taking_note" == ?(-)+([0-9]) ]] 
     then
         note_to_open=$(echo "$all_notes" | sed -n "${taking_note}p")
         open_note "$NOTES_DIR$note_to_open/$note_md"
@@ -14,13 +14,13 @@ get_last_note() {
         note_to_open=$(echo "$all_notes" | sed -n "1p")
         open_note "$NOTES_DIR$note_to_open/$note_md"
     else 
-        printf "You dont have enough notes in %s\n" $NOTES_DIR
+        printf "You dont have enough notes in %s\n" "$NOTES_DIR"
         printf "Check argument after -l, your total amount of note is %s. I can't find note #%s.\n" "$notes_amount" "$taking_note"
     fi
 }
 
 open_note() {
-    cd "$NOTES_DIR"
+    cd "$NOTES_DIR" || exit 
     vim "$1"
 }
 
@@ -61,11 +61,11 @@ then
     note_path="${NOTES_DIR}${isosec}"
 
     if test -d "$NOTES_DIR"; then
-        cd "$NOTES_DIR"
+        cd "$NOTES_DIR" || exit
     else
         echo "Notes directory: '$NOTES_DIR' not found. I'll create one."
         mkdir "$NOTES_DIR"
-        cd "$NOTES_DIR"
+        cd "$NOTES_DIR" || exit
     fi
     mkdir "$note_path" && touch "$note_path/$note_md"
     vim "$note_path/$note_md"
