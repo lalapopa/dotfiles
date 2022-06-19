@@ -18,18 +18,18 @@ download_tools:
 
 dotfiles:
 	vim +PluginInstall +qall;
-	ln -snf $(CURDIR)/i3/.config/i3/* $(HOME)/.config/i3;
 	if [ ! -d "$(HOME)/.config/i3" ]; then \
 		mkdir -p "$(HOME)/.config/i3"; \
 	fi;
-	ln -snf $(CURDIR)/polybar/.config/polybar/* $(HOME)/.config/polybar;
 	if [ ! -d "$(HOME)/.config/polybar" ]; then \
 		mkdir -p "$(HOME)/.config/polybar"; \
 	fi;
-	ln -snf $(CURDIR)/rofi/.config/rofi/* $(HOME)/.config/rofi;
 	if [ ! -d "$(HOME)/.config/rofi" ]; then \
 		mkdir -p "$(HOME)/.config/rofi"; \
 	fi;
+	ln -snf $(CURDIR)/i3/.config/i3/* $(HOME)/.config/i3;
+	ln -snf $(CURDIR)/polybar/.config/polybar/* $(HOME)/.config/polybar;
+	ln -snf $(CURDIR)/rofi/.config/rofi/* $(HOME)/.config/rofi;
 	ln -snf $(CURDIR)/tmux/.tmux.conf $(HOME);
 	ln -snf $(CURDIR)/vim/.vimrc $(HOME);
 	ln -snf $(CURDIR)/bash/.bashrc $(HOME);
