@@ -18,9 +18,9 @@ download_tools:
 
 dotfiles:
 	vim +PluginInstall +qall;
-	ln -snf $(CURDIR)/i3/.config/i3 $(HOME)/.config/;
-	ln -snf $(CURDIR)/polybar/.config/polybar $(HOME)/.config/;
-	ln -snf $(CURDIR)/rofi/.config/rofi $(HOME)/.config/;
+	ln -snf $(CURDIR)/i3/.config/i3/* $(HOME)/.config/i3;
+	ln -snf $(CURDIR)/polybar/.config/polybar/* $(HOME)/.config/polybar;
+	ln -snf $(CURDIR)/rofi/.config/rofi/* $(HOME)/.config/rofi;
 	ln -snf $(CURDIR)/tmux/.tmux.conf $(HOME);
 	ln -snf $(CURDIR)/vim/.vimrc $(HOME);
 	ln -snf $(CURDIR)/bash/.bashrc $(HOME);
