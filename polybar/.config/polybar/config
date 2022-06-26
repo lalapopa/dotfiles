@@ -17,18 +17,18 @@
 ;==========================================================
 
 [colors]
-background = #282A2E
-background-alt = #373B41
-foreground = #dfdfdd
-primary = #e5b560
-secondary = #8ABEB7
-alert = #A54242
-disabled = #707880
+background = #3F3F3F 
+background-alt =#6B6B6B 
+foreground = #D1D0D1
+primary = #FFDE99 
+secondary = #DFDFFF 
+alert = #9B1300 
+disabled = #E9E9E9 
 
 [bar/example]
 monitor = eDP
 width = 100%
-height = 24pt
+height = 30pt
 radius = 0
 
 ; dpi = 96

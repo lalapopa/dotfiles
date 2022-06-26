@@ -4,6 +4,7 @@ URxvt.font: xft:iosevka:size=12,xft:Symbola,xft:Noto Emoji:minspace=False
 
 URxvt.scrollBar: false
 URxvt.iso14755: false
+URxvt.internalBorder: 0
 
 URxvt.cursorBlink: true
 URxvt.cursorColor: #dfdfdd

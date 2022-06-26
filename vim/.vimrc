@@ -37,6 +37,7 @@ Plugin 'chrisbra/csv.vim'
 Plugin 'reedes/vim-lexical'
 Plugin 'psf/black'
 Plugin 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
+Plugin 'ap/vim-css-color'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -99,6 +100,7 @@ let g:lightline = {
     \ }
 
 " Colorscheme 
+let g:seoul256_srgb = 1
 let g:seoul256_background = 234
 colo seoul256
 

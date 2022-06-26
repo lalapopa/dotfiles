@@ -146,17 +146,17 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-set $bg-color 	         #373B41
-set $inactive-bg-color   #282A2E
-set $text-color          #dfdfdd
-set $inactive-text-color #707880
+set $bg-color 	         #252525
+set $inactive-bg-color   #6B6B6B
+set $text-color          #D1D0D1
+set $inactive-text-color #D1D0D1 
 set $urgent-bg-color     #E53935
 
 # window colors
 #                       border              background         text                 indicator
 client.focused          $bg-color           $bg-color          $text-color          #e5b560
-client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color #e5b560
-client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color #e5b560
+client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color  #e5b560
+client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color  #e5b560
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #e5b560
 
 # Lock screen
