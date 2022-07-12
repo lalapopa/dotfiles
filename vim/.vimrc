@@ -184,6 +184,10 @@ nnoremap N Nzzzv
 " Copy to clipboard
 vnoremap <C-c> "+y
 
+" Fuck Ex mode 
+map q: <nop>
+nnoremap Q <nop>
+
 """""""""""""""""""
 "  some commands  "
 """""""""""""""""""
