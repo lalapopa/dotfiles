@@ -35,7 +35,7 @@ exec --no-startup-id nm-applet
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt 
+bindsym $mod+Return exec /home/lalapopa/Downloads/cool-retro-term/cool-retro-term 
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -188,7 +188,7 @@ bindsym --release Print exec import ~/Pictures/ss.png && xclip -selection clipbo
 exec_always --no-startup-id ${HOME}/.config/polybar/launch.sh
 
 # Change wallpaper picture
-exec_always feh --bg-scale ${HOME}/Documents/trash/img/bg1.jpg
+exec_always feh --bg-scale ${HOME}/Documents/trash/img/bg2.jpg
 
 # Language changing
 exec "setxkbmap -layout us,ru"
