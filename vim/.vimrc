@@ -105,8 +105,17 @@ let g:seoul256_background = 234
 colo seoul256
 
 " Markdown screenshots
+function! g:LatexPasteImage(relpath)
+    execute "normal! i\\includegraphics{" . a:relpath . "}\r\\caption{I"
+    let ipos = getcurpos()
+    execute "normal! a" . "mage}"
+    call setpos('.', ipos)
+    execute "normal! ve\<C-g>"
+endfunction
+
 let g:mdip_imgdir = 'figures'
 let g:mdip_imgname = 'img'
+autocmd FileType tex let g:PasteImageFunction = 'g:LatexPasteImage'
 
 " FZF setting 
 let g:fzf_layout = { 'down': '30%' }
@@ -197,8 +206,8 @@ autocmd FileType tex inoremap <C-f> <Esc>:!source ~/.dotfiles/scripts/inkscape_s
 autocmd FileType tex nnoremap <C-f> <Esc>:!source ~/.dotfiles/scripts/inkscape_shortcut.sh<CR><CR><Esc>: silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
 
 " Image2markdown
-autocmd FileType markdown nmap <buffer><silent> <leader>p :call mdip#MarkdownClipboardImage()<CR>
 autocmd FileType markdown nnoremap <Leader>ll :MarkdownPreview<CR>
+autocmd FileType markdown,tex nmap <buffer><silent> <leader>p :call mdip#MarkdownClipboardImage()<CR>
 
 " FZF
 nnoremap <silent> <Leader>f :Rg<CR>

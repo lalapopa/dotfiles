@@ -32,6 +32,7 @@ dotfiles:
 	ln -snf $(CURDIR)/rofi/.config/rofi/* $(HOME)/.config/rofi;
 	ln -snf $(CURDIR)/tmux/.tmux.conf $(HOME);
 	ln -snf $(CURDIR)/vim/.vimrc $(HOME);
+	ln -snf $(CURDIR)/vim/my_snippets $(HOME)/.vim;
 	ln -snf $(CURDIR)/bash/.bashrc $(HOME);
 	ln -snf $(CURDIR)/bash/.profile $(HOME);
 	ln -snf $(CURDIR)/urxvt/.Xresources $(HOME);
