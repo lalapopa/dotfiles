@@ -188,7 +188,7 @@ bindsym --release Print exec import ~/Pictures/ss.png && xclip -selection clipbo
 exec_always --no-startup-id ${HOME}/.config/polybar/launch.sh
 
 # Change wallpaper picture
-exec_always feh --bg-scale ${HOME}/Documents/trash/img/bg2.jpg
+exec_always feh --bg-scale ${HOME}/Documents/trash/img/hu_tao_bg.png
 
 # Language changing
 exec "setxkbmap -layout us,ru"

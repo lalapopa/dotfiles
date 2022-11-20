@@ -27,6 +27,7 @@ __pycache__
 *.fls
 *.aux
 *.fdb_latexmk
+*.xdv
 
 ------------
 -  Others  -

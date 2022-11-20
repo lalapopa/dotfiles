@@ -4,7 +4,6 @@
 [credential]
 	helper = cache
 [core]
-	exccludesfile = /home/lalapopa/.dot-gitignore
 	excludesfile = /home/lalapopa/.dot-gitignore
     editor = vim
 

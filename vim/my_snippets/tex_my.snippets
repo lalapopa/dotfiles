@@ -1,4 +1,5 @@
 extends tex 
+
 ##################
 # Flight Dynamics#
 ##################
@@ -7,8 +8,36 @@ snippet mm "Formulas in line" w
 $${1:${VISUAL}}$$0
 endsnippet
 
+snippet "m(x|y|z)d" "Moment x or z or y delta" wr
+\bar{M}_`!p snip.rv = match.group(1)`^{\delta}
+endsnippet
+
+snippet "m(x|y|z)w" "Moment omega" wr
+\bar{M}_`!p snip.rv = match.group(1)`^{\omega_`!p snip.rv = match.group(1)`}
+endsnippet
+
+snippet "m(x|y|z)a" "Moment " wr
+\bar{M}_`!p snip.rv = match.group(1)`^{\alpha}
+endsnippet
+
+snippet mxa "Mxa" 
+\bar{M}_x^{\alpha}
+endsnippet
+
+snippet mxaa "Mxa" 
+\bar{M}_x^{\dot{\alpha}}
+endsnippet
+
+snippet mxb "Mxb" 
+\bar{M}_x^{\beta}
+endsnippet
+
 snippet mydn "rudder moment" 
 \bar{M}_y^{\delta_н}
+endsnippet
+
+snippet myb "rudder moment" 
+\bar{M}_y^{\beta}
 endsnippet
 
 snippet mzphi "moment z phi" 
@@ -67,9 +96,8 @@ snippet -> "ra"
 \rightarrow
 endsnippet
 
-snippet oo "infinty"
+snippet oo "infinty" i
 \infty
 endsnippet
-
 
 # vim:ft=snippets:
