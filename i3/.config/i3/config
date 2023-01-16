@@ -42,6 +42,7 @@ bindsym $mod+Shift+q kill
 
 # always be float window
 for_window [class="Steam"] floating enable
+for_window [class="MATLAB R2021a"] floating enable
 
 # start rofi (a program launcher)
 bindsym $mod+q exec rofi -show drun
@@ -188,7 +189,7 @@ bindsym --release Print exec import ~/Pictures/ss.png && xclip -selection clipbo
 exec_always --no-startup-id ${HOME}/.config/polybar/launch.sh
 
 # Change wallpaper picture
-exec_always feh --bg-scale ${HOME}/Documents/trash/img/hu_tao_bg.png
+exec_always feh --bg-scale ${HOME}/Documents/trash/img/bg1.jpg
 
 # Language changing
 exec "setxkbmap -layout us,ru"

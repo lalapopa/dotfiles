@@ -22,8 +22,6 @@ inkscape_shortcut_pid=$(ps -ef | grep python3 | grep inkscape-shortcut | awk '{p
 
 if [[ -n "$inkscape_shortcut_pid" ]];
 then
-    echo "$inkscape_shortcut_pid" 
-    kill -15 "$inkscape_shortcut_pid"
-    echo "shorcut killed" 
+    echo "$inkscape_shortcut_pid" | xargs kill -15  
 fi
 
