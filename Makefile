@@ -27,9 +27,9 @@ dotfiles:
 	if [ ! -d "$(HOME)/.config/rofi" ]; then \
 		mkdir -p "$(HOME)/.config/rofi"; \
 	fi;
-	ln -snf $(CURDIR)/i3/.config/i3/* $(HOME)/.config/i3;
-	ln -snf $(CURDIR)/polybar/.config/polybar/* $(HOME)/.config/polybar;
-	ln -snf $(CURDIR)/rofi/.config/rofi/* $(HOME)/.config/rofi;
+	ln -snf $(CURDIR)/i3/* $(HOME)/.config/i3;
+	ln -snf $(CURDIR)/polybar/* $(HOME)/.config/polybar;
+	ln -snf $(CURDIR)/rofi/* $(HOME)/.config/rofi;
 	ln -snf $(CURDIR)/tmux/.tmux.conf $(HOME);
 	ln -snf $(CURDIR)/vim/.vimrc $(HOME);
 	ln -snf $(CURDIR)/vim/my_snippets $(HOME)/.vim;
