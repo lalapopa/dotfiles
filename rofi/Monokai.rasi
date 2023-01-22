@@ -1,12 +1,12 @@
 /**
- * ROFI Color theme
- * User: milouse
- * Copyright: Étienne Deparis
- */
+* ROFI Color theme
+* User: milouse
+* Copyright: Étienne Deparis
+*/
 
 * {
     selected-normal-foreground:  rgba ( 223, 223, 221, 100 % );
-    foreground:                 #D1D0D1; 
+    foreground:                  #D1D0D1; 
     normal-foreground:           @foreground;
     alternate-normal-background: rgba ( 39, 40, 34, 0 % );
     red:                         rgba ( 220, 50, 47, 100 % );
@@ -14,18 +14,18 @@
     blue:                        rgba ( 38, 139, 210, 100 % );
     urgent-foreground:           rgba ( 249, 38, 114, 100 % );
     alternate-urgent-background: rgba ( 39, 40, 34, 0 % );
-    active-foreground:           rgba ( 166, 226, 42, 100 % );
+    active-foreground:           rgba ( 255, 222, 153, 100 % );
     lightbg:                     rgba ( 238, 232, 213, 100 % );
-    selected-active-foreground:  rgba ( 166, 226, 42, 100 % );
+    selected-active-foreground:  @foreground;
     alternate-active-background: rgba ( 39, 40, 34, 0 % );
-    background:                 #3F3F3F; 
+    background:                  #3F3F3F; 
     bordercolor:                 rgba ( 0, 43, 54, 100 % );
     alternate-normal-foreground: @foreground;
     normal-background:           rgba ( 39, 40, 34, 0 % );
     lightfg:                     rgba ( 88, 104, 117, 100 % );
     selected-normal-background:  rgba ( 20, 20, 17, 100 % );
     border-color:                @foreground;
-    spacing:                     2;
+    spacing:                     4;
     separatorcolor:             #FFDE99; 
     urgent-background:           rgba ( 39, 40, 34, 0 % );
     selected-urgent-background:  rgba ( 249, 38, 114, 100 % );
@@ -37,7 +37,7 @@
 }
 #window {
     background-color: @background;
-    border:           1;
+    border:           0;
     padding:          5;
 }
 #mainbox {

@@ -1,0 +1,81 @@
+env:
+  TERM: xterm-256color
+
+window:
+  padding:
+    x: 3
+  opacity: 0.8
+
+font:
+  size: 8.0
+  normal:
+    family: Iosevka
+    style: Regular
+  bold:
+    family: Iosevka
+    style: Bold
+  italic:
+    family: Iosevka
+    style: Italic
+  bold_italic:
+    family: Iosevka 
+    style: Bold Italic
+
+colors:
+  primary:
+    background: '#3F3F3F'
+    foreground: '#D1D0D1'
+    bright_foreground: '#ffffff'
+  cursor:
+    text: CellBackground
+    cursor: CellForeground
+  vi_mode_cursor:
+    text: CellBackground
+    cursor: CellForeground
+  search:
+    matches:
+      foreground: '#44475a'
+      background: '#50fa7b'
+    focused_match:
+      foreground: '#44475a'
+      background: '#ffb86c'
+  footer_bar:
+    background: '#282a36'
+    foreground: '#f8f8f2'
+  hints:
+    start:
+      foreground: '#282a36'
+      background: '#f1fa8c'
+    end:
+      foreground: '#f1fa8c'
+      background: '#282a36'
+  line_indicator:
+    foreground: None
+    background: None
+  selection:
+    text: CellForeground
+    background: '#44475a'
+  normal:
+    black: '#252525'
+    red: '#9B1300'
+    green: '#3e8701'
+    yellow: '#DFBC72'
+    blue: '#719CDF'
+    magenta: '#696ebf'
+    cyan: '#289c93'
+    white: '#F1F1F1'
+  bright:
+    black: '#3F3F3F'
+    red: '#730B00'
+    green: '#46ab6e'
+    yellow: '#FFDE99'
+    blue: '#007299'
+    magenta: '#98BEDE'
+    cyan: '#33c5ba'
+    white: '#BFBFBF'
+
+cursor:
+  style:
+    shape: Block
+    blinking: Always
+  blink_interval: 500

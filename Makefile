@@ -4,7 +4,7 @@ SHELL := /usr/bin/bash
 all: download_tools dotfiles 
 
 download_tools: 
-	sudo -S apt-get update && sudo -S apt-get -y install vim tmux i3 git fzf rxvt-unicode polybar xclip ripgrep;
+	sudo -S apt-get update && sudo -S apt-get -y install vim tmux i3 git fzf alacritty polybar xclip ripgrep;
 	if [ ! -d "$(HOME)/.vim/bundle/Vundle.vim" ]; then \
 		git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim; \
 	fi;
@@ -27,15 +27,19 @@ dotfiles:
 	if [ ! -d "$(HOME)/.config/rofi" ]; then \
 		mkdir -p "$(HOME)/.config/rofi"; \
 	fi;
+	if [ ! -d "$(HOME)/.config/alacritty" ]; then \
+		mkdir -p "$(HOME)/.config/alacritty"; \
+	fi;
 	ln -snf $(CURDIR)/i3/* $(HOME)/.config/i3;
 	ln -snf $(CURDIR)/polybar/* $(HOME)/.config/polybar;
+	ln -snf $(CURDIR)/picom/* $(HOME)/.config/;
 	ln -snf $(CURDIR)/rofi/* $(HOME)/.config/rofi;
+	ln -snf $(CURDIR)/alacritty/* $(HOME)/.config/alacritty;
 	ln -snf $(CURDIR)/tmux/.tmux.conf $(HOME);
 	ln -snf $(CURDIR)/vim/.vimrc $(HOME);
 	ln -snf $(CURDIR)/vim/my_snippets $(HOME)/.vim;
 	ln -snf $(CURDIR)/bash/.bashrc $(HOME);
 	ln -snf $(CURDIR)/bash/.profile $(HOME);
-	ln -snf $(CURDIR)/urxvt/.Xresources $(HOME);
 	ln -snf $(CURDIR)/git/.gitconfig $(HOME);
 	ln -snf $(CURDIR)/git/.dot-gitignore $(HOME);
 
