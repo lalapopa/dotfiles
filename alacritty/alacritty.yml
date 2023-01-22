@@ -3,22 +3,22 @@ env:
 
 window:
   padding:
-    x: 3
+    x: 1
   opacity: 0.8
 
 font:
-  size: 8.0
+  size: 9
   normal:
-    family: Iosevka
+    family: monospace 
     style: Regular
   bold:
-    family: Iosevka
+    family: monospace
     style: Bold
   italic:
-    family: Iosevka
+    family: monospace
     style: Italic
   bold_italic:
-    family: Iosevka 
+    family: monospace 
     style: Bold Italic
 
 colors:

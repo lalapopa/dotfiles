@@ -1,5 +1,11 @@
 SHELL := /usr/bin/bash
 
+define create_folder 
+	if [ ! -d $(1) ]; then \
+		mkdir -p $(1); \
+	fi;
+endef
+
 .PHONY: all
 all: download_tools dotfiles 
 
@@ -8,9 +14,7 @@ download_tools:
 	if [ ! -d "$(HOME)/.vim/bundle/Vundle.vim" ]; then \
 		git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim; \
 	fi;
-	if [ ! -d "$(HOME)/.config" ]; then \
-		mkdir "$(HOME)/.config"; \
-	fi;
+	$(call create_folder,"$(HOME)/.config")
 	if [ ! -d "$(HOME)/.fzf" ]; then \
 		git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf; \
 		~/.fzf/install; \
@@ -18,23 +22,17 @@ download_tools:
 
 dotfiles:
 	vim +PluginInstall +qall;
-	if [ ! -d "$(HOME)/.config/i3" ]; then \
-		mkdir -p "$(HOME)/.config/i3"; \
-	fi;
-	if [ ! -d "$(HOME)/.config/polybar" ]; then \
-		mkdir -p "$(HOME)/.config/polybar"; \
-	fi;
-	if [ ! -d "$(HOME)/.config/rofi" ]; then \
-		mkdir -p "$(HOME)/.config/rofi"; \
-	fi;
-	if [ ! -d "$(HOME)/.config/alacritty" ]; then \
-		mkdir -p "$(HOME)/.config/alacritty"; \
-	fi;
+	$(call create_folder,"$(HOME)/.config/i3")
+	$(call create_folder,"$(HOME)/.config/polybar")
+	$(call create_folder,"$(HOME)/.config/rofi")
+	$(call create_folder,"$(HOME)/.config/alacritty")
+	$(call create_folder,"$(HOME)/.config/fontconfig")
 	ln -snf $(CURDIR)/i3/* $(HOME)/.config/i3;
 	ln -snf $(CURDIR)/polybar/* $(HOME)/.config/polybar;
 	ln -snf $(CURDIR)/picom/* $(HOME)/.config/;
 	ln -snf $(CURDIR)/rofi/* $(HOME)/.config/rofi;
 	ln -snf $(CURDIR)/alacritty/* $(HOME)/.config/alacritty;
+	ln -snf $(CURDIR)/fontconfig/* $(HOME)/.config/fontconfig;
 	ln -snf $(CURDIR)/tmux/.tmux.conf $(HOME);
 	ln -snf $(CURDIR)/vim/.vimrc $(HOME);
 	ln -snf $(CURDIR)/vim/my_snippets $(HOME)/.vim;
