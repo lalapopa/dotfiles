@@ -7,7 +7,7 @@
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock-fancy
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
@@ -18,7 +18,7 @@ exec --no-startup-id picom --config $HOME/.config/picom.conf --experimental-back
 exec_always --no-startup-id ${HOME}/.config/polybar/launch.sh
 
 # Change wallpaper picture
-exec_always feh --bg-scale ${HOME}/Documents/trash/img/bg1.jpg
+exec_always feh --bg-scale ${HOME}/Pictures/new_bg.jpg
 
 # Language changing
 exec "setxkbmap -layout us,ru"
@@ -36,11 +36,11 @@ set $mod Mod4
 gaps outer 0
 gaps inner 8 
 default_floating_border pixel 0
-default_border pixel 0
+default_border pixel 0 
 for_window [class="^.*"] border pixel 0
-focus_follows_mouse no
+for_window [class=".*"] title_format ""
+font pango:DejaVu Sans Mono 0
 
-font pango:iosevka 8 
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -48,7 +48,6 @@ floating_modifier $mod
 # always be float window
 for_window [class="Steam"] floating enable
 for_window [class="MATLAB R2021a"] floating enable
-
 
 ##############
 #  bindings  #
