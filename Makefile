@@ -40,6 +40,10 @@ dotfiles:
 	ln -snf $(CURDIR)/bash/.profile $(HOME);
 	ln -snf $(CURDIR)/git/.gitconfig $(HOME);
 	ln -snf $(CURDIR)/git/.dot-gitignore $(HOME);
+	ln -snf $(CURDIR)/scripts/* /usr/local/bin; 
+
+
+
 
 download_font:
 	wget https://github.com/be5invis/Iosevka/releases/download/v15.3.1/super-ttc-iosevka-15.3.1.zip -O /tmp/fonts.zip;

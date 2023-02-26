@@ -8,7 +8,9 @@ set smartindent
 set scrolloff=8 
 set noshowmode
 set cc=80
+set clipboard=unnamedplus
 syntax on
+
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -186,16 +188,17 @@ nnoremap <leader>j :m .+1<CR>==
 noremap n nzzzv 
 nnoremap N Nzzzv
 
-" Allign view 
-noremap n nzzzv 
-nnoremap N Nzzzv
-
 " Copy to clipboard
-vnoremap <C-c> "+y
+vnoremap <C-c> "yy <Bar> :call system('xclip', @y)<CR>
 
 " Fuck Ex mode 
 map q: <nop>
 nnoremap Q <nop>
+
+" Prevent x from overriding what's in the clipboard
+
+noremap x "_x
+noremap X "_X
 
 """""""""""""""""""
 "  some commands  "

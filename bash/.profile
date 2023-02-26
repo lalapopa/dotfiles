@@ -31,3 +31,11 @@ export INFOPATH="$INFOPATH:/usr/local/texlive/2022/texmf-dist/doc/info"
 export PATH="/usr/local/texlive/2022/bin/x86_64-linux:$PATH"
 export PATH="$PATH:/usr/local/go/bin"
 
+export PATH="/home/lalapopa/perl5/bin${PATH:+:${PATH}}"
+export perl5lib="/home/lalapopa/perl5/lib/perl5${perl5lib:+:${perl5lib}}"
+export perl_local_lib_root="/home/lalapopa/perl5${perl_local_lib_root:+:${perl_local_lib_root}}"
+export perl_mm_opt="install_base=/home/lalapopa/perl5"
+export PERL_MB_OPT="--install_base \"/home/lalapopa/perl5\""
+
+export EDITOR="/usr/bin/vim"
+

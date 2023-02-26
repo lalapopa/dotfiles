@@ -117,14 +117,8 @@ fi
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 
-
-PATH="/home/lalapopa/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/home/lalapopa/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/home/lalapopa/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/home/lalapopa/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/lalapopa/perl5"; export PERL_MM_OPT;
-
 set -o vi
+export EDITOR="/usr/bin/vim"
 
 alias matlab="/home/lalapopa/matlab2021a/bin/matlab"
 alias pyenv="source ./env/bin/activate"
