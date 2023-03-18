@@ -29,9 +29,15 @@ __pycache__
 *.fdb_latexmk
 *.xdv
 
+---------------------
+-  matlab/simulink  -
+---------------------
+**/slprj/*
+**/resources/project/*
+
 ------------
 -  Others  -
 ------------
 nohup.out
 tags
-
+**/.vscode/*

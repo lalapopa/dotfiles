@@ -60,15 +60,14 @@ let g:vimtex_compiler_latexmk = {
 	\ 'continuous' : 1,
 	\ 'executable' : 'latexmk',
 	\ 'hooks' : [],
-	\ 'options' : [
-	\   '-verbose',
-	\   '-file-line-error',
-	\   '-synctex=1',
-	\   '-interaction=nonstopmode',
-	\	'-shell-escape',
-	\ ],
-	\}
-
+    \ 'options' : [
+    \   '-verbose',
+    \   '-file-line-error',
+    \   '-synctex=1',
+    \   '-interaction=nonstopmode',
+    \	'-shell-escape',
+    \ ],
+    \}
 
 " Statusbar 
 let g:lightline = {
@@ -83,6 +82,9 @@ let g:lightline = {
     \},
     \ 'component_function': {
     \   'gitbranch': 'FugitiveHead'
+    \ },
+    \ 'component': {
+    \   'lineinfo': '%3l:%-2v%<',
     \ },
     \ 'mode_map': {
     \ 'n' : 'N',
@@ -202,8 +204,8 @@ nnoremap Q <nop>
 """""""""""""""""""
 
 " inkscape-figure run
-autocmd FileType tex inoremap <C-f> <Esc>:!source ~/.dotfiles/scripts/inkscape_shortcut.sh<CR><CR><Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
-autocmd FileType tex nnoremap <C-f> <Esc>:!source ~/.dotfiles/scripts/inkscape_shortcut.sh<CR><CR><Esc>: silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
+autocmd FileType tex inoremap <C-f> <Esc>:!source ~/.dotfiles/scripts/inkscape_shortcut.sh >/dev/null 2>&1<CR><CR><Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
+autocmd FileType tex nnoremap <C-f> <Esc>:!source ~/.dotfiles/scripts/inkscape_shortcut.sh >/dev/null 2>&1<CR><CR><Esc>: silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
 
 " Image2markdown
 autocmd FileType markdown nnoremap <Leader>ll :MarkdownPreview<CR>

@@ -46,17 +46,6 @@ esac
 # should be on the output of commands, not on the prompt
 #force_color_prompt=yes
 
-if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
-    else
-	color_prompt=
-    fi
-fi
-
 if [ "$color_prompt" = yes ]; then
     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;33m\]\u@\h\[\033[33m\]\[\033[01;33m\](\W)\[\033[00m\]\[\033[1;31m\]$\[\e[m\] '
 else
@@ -123,10 +112,10 @@ PERL5LIB="/home/lalapopa/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5
 PERL_LOCAL_LIB_ROOT="/home/lalapopa/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/home/lalapopa/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/lalapopa/perl5"; export PERL_MM_OPT;
+PLANTUML_JAR="/usr/local/plantuml/plantuml.jar"; export PLANTUML_JAR;
+GRAPHVIZ_DOT="/usr/bin/dot"; export GRAPHVIZ_DOT;
 
 set -o vi
 
-alias matlab="/home/lalapopa/matlab2021a/bin/matlab"
 alias pyenv="source ./env/bin/activate"
 alias c=clear
-
