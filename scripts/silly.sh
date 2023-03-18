@@ -18,7 +18,7 @@ do
     inkscape_pid=$(ps -ef | grep inkscape | grep svg | grep home | awk '{print $2}')
 done
 
-inkscape_shortcut_pid=$(ps -ef | grep python3 | grep inkscape-shortcut | awk '{print $2}') 
+inkscape_shortcut_pid=$(ps -ef | grep bash | grep inkscape_shortcut | awk '{print $2}') 
 
 if [[ -n "$inkscape_shortcut_pid" ]];
 then
