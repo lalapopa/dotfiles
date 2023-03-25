@@ -7,5 +7,6 @@ set default-fg '#dfdfdd'
 set inputbar-bg '#282A2E'
 set statusbar-bg #282A2E
 set recolor-lightcolor \#222222
+set sandbox none
 
 
