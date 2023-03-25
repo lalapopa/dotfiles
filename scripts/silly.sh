@@ -18,10 +18,15 @@ do
     inkscape_pid=$(ps -ef | grep inkscape | grep svg | grep home | awk '{print $2}')
 done
 
-inkscape_shortcut_pid=$(ps -ef | grep bash | grep inkscape_shortcut | awk '{print $2}') 
-
-if [[ -n "$inkscape_shortcut_pid" ]];
+inkscape_shortcut_bash_pid=$(ps -ef | grep bash | grep inkscape_shortcut | awk '{print $2}') 
+if [[ -n "$inkscape_shortcut_bash_pid" ]];
 then
-    echo "$inkscape_shortcut_pid" | xargs kill -15  
+    echo "$inkscape_shortcut_bash_pid" | xargs kill -15  
+fi
+
+inkscape_shortcut_python_pid=$(ps -ef | grep python| grep inkscape-shortcut | awk '{print $2}')
+if [[ -n "$inkscape_shortcut_python_pid" ]];
+then
+    echo "$inkscape_shortcut_python_pid" | xargs kill -15  
 fi
 
