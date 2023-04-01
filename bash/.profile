@@ -26,8 +26,3 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-export MANPATH="$MANPATH:/usr/local/texlive/2022/texmf-dist/doc/man"
-export INFOPATH="$INFOPATH:/usr/local/texlive/2022/texmf-dist/doc/info"
-export PATH="/usr/local/texlive/2022/bin/x86_64-linux:$PATH"
-export PATH="$PATH:/usr/local/go/bin"
-
