@@ -35,7 +35,6 @@ Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
 Plugin 'chrisbra/csv.vim'
 Plugin 'reedes/vim-lexical'
-Plugin 'psf/black'
 Plugin 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
 Plugin 'ap/vim-css-color'
 
@@ -145,11 +144,8 @@ augroup lexical
   autocmd FileType text call lexical#init({ 'spell': 0 })
 augroup END
 
-" Black 
-" augroup black_on_save
-"     autocmd!
-"     autocmd BufWritePre *.py Black
-" augroup end
+" Black (u need to install black in command line) 
+autocmd BufWritePre *.py :%!black -q - < "%" 
 
 """"""""""""""
 "  mappings  "

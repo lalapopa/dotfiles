@@ -84,10 +84,17 @@ export PERL_LOCAL_LIB_ROOT="/home/lalapopa/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_L
 export PERL_MB_OPT="--install_base \"/home/lalapopa/perl5\""
 export PERL_MM_OPT="INSTALL_BASE=/home/lalapopa/perl5"
 
+# texlive 
 export MANPATH="$MANPATH:/usr/local/texlive/2022/texmf-dist/doc/man"
 export INFOPATH="$INFOPATH:/usr/local/texlive/2022/texmf-dist/doc/info"
 export PATH="/usr/local/texlive/2022/bin/x86_64-linux:$PATH"
+
+# go
 export PATH="$PATH:/usr/local/go/bin"
+
+# pyenv
+export PATH="$HOME/.pyenv/bin:$PATH"
+
 
 #############
 #  exports  #
@@ -97,7 +104,6 @@ export PROMPT_COMMAND="history -a; history -n"
 
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
 
 ###########
 #  alias  #
@@ -109,9 +115,14 @@ alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
 
-#########
-#  set  #
-#########
+###########
+#  other  #
+###########
 
 set -o vi
+
+if [ -x $HOME/.pyenv/bin/pyenv ]; then
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+fi
 
