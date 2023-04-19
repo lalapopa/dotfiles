@@ -29,7 +29,7 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'lervag/vimtex'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-Plugin 'iamcco/markdown-preview.nvim' 
+Plugin 'iamcco/markdown-preview.nvim'
 Plugin 'ferrine/md-img-paste.vim'
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
@@ -144,8 +144,14 @@ augroup lexical
   autocmd FileType text call lexical#init({ 'spell': 0 })
 augroup END
 
+
 " Black (u need to install black in command line) 
-autocmd BufWritePre *.py :%!black -q - < "%" 
+function! BlackOnSave()
+    silent :%!black -q - < % 
+    exe "normal! g`\""
+endfunction
+
+autocmd BufWritePost *.py call BlackOnSave() 
 
 """"""""""""""
 "  mappings  "
@@ -203,8 +209,10 @@ nnoremap Q <nop>
 autocmd FileType tex inoremap <C-f> <Esc>:!source ~/.dotfiles/scripts/inkscape_shortcut.sh >/dev/null 2>&1<CR><CR><Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
 autocmd FileType tex nnoremap <C-f> <Esc>:!source ~/.dotfiles/scripts/inkscape_shortcut.sh >/dev/null 2>&1<CR><CR><Esc>: silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
 
-" Image2markdown
+" markdown-preview 
 autocmd FileType markdown nnoremap <Leader>ll :MarkdownPreview<CR>
+
+" Image2markdown
 autocmd FileType markdown,tex nmap <buffer><silent> <leader>p :call mdip#MarkdownClipboardImage()<CR>
 
 " FZF
