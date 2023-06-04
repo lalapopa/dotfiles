@@ -37,6 +37,7 @@ Plugin 'chrisbra/csv.vim'
 Plugin 'reedes/vim-lexical'
 Plugin 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
 Plugin 'ap/vim-css-color'
+Plugin 'dense-analysis/ale'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -147,10 +148,10 @@ augroup END
 
 " Black (u need to install black in command line) 
 function! BlackOnSave()
+    mark \"    
     silent :%!black -q - < % 
-    exe "normal! g`\""
+    silent! exe "normal! g`\""
 endfunction
-
 autocmd BufWritePost *.py call BlackOnSave() 
 
 """"""""""""""
@@ -213,7 +214,7 @@ autocmd FileType tex nnoremap <C-f> <Esc>:!source ~/.dotfiles/scripts/inkscape_s
 autocmd FileType markdown nnoremap <Leader>ll :MarkdownPreview<CR>
 
 " Image2markdown
-autocmd FileType markdown,tex nmap <buffer><silent> <leader>p :call mdip#MarkdownClipboardImage()<CR>
+autocmd FileType markdown,tex nmap <buffer><silent> <Leader>p :call mdip#MarkdownClipboardImage()<CR>
 
 " FZF
 nnoremap <silent> <Leader>f :Rg<CR>

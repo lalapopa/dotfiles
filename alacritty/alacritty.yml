@@ -23,8 +23,8 @@ font:
 
 colors:
   primary:
-    background: '#3F3F3F'
-    foreground: '#D1D0D1'
+    background: '0x24292e'
+    foreground: '0xd1d5da'
     bright_foreground: '#ffffff'
   cursor:
     text: CellBackground
@@ -56,23 +56,26 @@ colors:
     text: CellForeground
     background: '#44475a'
   normal:
-    black: '#252525'
-    red: '#FF1300'
-    green: '#3e8701'
-    yellow: '#DFBC72'
-    blue: '#719CDF'
-    magenta: '#696ebf'
-    cyan: '#289c93'
-    white: '#F1F1F1'
+    black:   '0x586069'
+    red:     '0xea4a5a'
+    green:   '0x34d058'
+    yellow:  '0xffea7f'
+    blue:    '0x2188ff'
+    magenta: '0xb392f0'
+    cyan:    '0x39c5cf'
+    white:   '0xd1d5da'
   bright:
-    black: '#3F3F3F'
-    red: '#ff0000'
-    green: '#46ab6e'
-    yellow: '#FFDE99'
-    blue: '#007299'
-    magenta: '#98BEDE'
-    cyan: '#33c5ba'
-    white: '#BFBFBF'
+    black:   '0x959da5'
+    red:     '0xf97583'
+    green:   '0x85e89d'
+    yellow:  '0xffea7f'
+    blue:    '0x79b8ff'
+    magenta: '0xb392f0'
+    cyan:    '0x56d4dd'
+    white:   '0xfafbfc'
+  indexed_colors:
+    - { index: 16, color: '0xd18616' }
+    - { index: 17, color: '0xf97583' }
 
 cursor:
   style:

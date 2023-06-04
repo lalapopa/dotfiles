@@ -7,7 +7,7 @@
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock-fancy
+exec --no-startup-id xss-lock -- lock
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
@@ -24,8 +24,8 @@ exec_always --no-startup-id ${HOME}/.config/polybar/launch.sh
 exec_always --no-startup-id feh --bg-scale ${HOME}/Pictures/new_bg.jpg
 
 # Language changing
-exec "setxkbmap -layout us,ru"
-exec "setxkbmap -option grp:win_space_toggle us,ru"
+exec_always "setxkbmap -layout us,ru"
+exec_always "setxkbmap -option grp:win_space_toggle us,ru"
 
 
 ##############
@@ -61,7 +61,7 @@ bindsym $mod+Return exec /home/lalapopa/Downloads/cool-retro-term/cool-retro-ter
 bindsym $mod+Shift+q kill
 
 # start rofi
-bindsym $mod+q exec rofi -show drun
+bindsym $mod+q exec rofi -show drun -show-icons 
 
 # change focus
 bindsym $mod+h focus left
@@ -176,13 +176,13 @@ set $urgent-bg-color     #E53935
 
 # window colors
 #                       border              background         text                 indicator
-client.focused          $bg-color           $bg-color          $text-color          #e5b560
-client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color  #e5b560
-client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color  #e5b560
-client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #e5b560
+client.focused          $bg-color           $bg-color          $text-color          #40bfff
+client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color  #40bfff
+client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color  #40bfff
+client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #40bfff
 
 # Lock screen
-bindsym $mod+shift+x exec i3lock-fancy
+bindsym $mod+shift+x exec "setxkbmap -layout us && lock && setxkbmap -layout us,ru"
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -196,7 +196,7 @@ bindsym XF86MonBrightnessUp exec brightnessctl set +5% # increase screen brightn
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%- # decrease screen brightness
 
 # Suspend system using power button 
-bindsym XF86PowerOff exec --no-startup-id "systemctl suspend; i3lock"
+bindsym XF86PowerOff exec --no-startup-id "lock; systemctl suspend"
 
 # Take area screenshot and copy to clipboard
 bindsym --release Print exec import ~/Pictures/ss.png && xclip -selection clipboard -t image/png -i ~/Pictures/ss.png 
