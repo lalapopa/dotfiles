@@ -34,6 +34,7 @@ dotfiles:
 	ln -snf $(CURDIR)/alacritty/* $(HOME)/.config/alacritty;
 	ln -snf $(CURDIR)/zathura/* $(HOME)/.config/zathura;
 	ln -snf $(CURDIR)/urxvt/.Xresources $(HOME);
+	ln -snf $(CURDIR)/laptop/.xsessionrc $(HOME);
 	ln -snf $(CURDIR)/fontconfig/* $(HOME)/.config/fontconfig;
 	ln -snf $(CURDIR)/tmux/.tmux.conf $(HOME);
 	ln -snf $(CURDIR)/vim/.vimrc $(HOME);

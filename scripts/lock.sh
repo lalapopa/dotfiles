@@ -2,7 +2,7 @@
 
 background='0000003F'
 foreground='D1D0D1cc'
-primary='FFDE99cc'
+primary='40BFFFcc'
 font_size='16pt'
 
 i3lock \
