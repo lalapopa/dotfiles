@@ -85,9 +85,9 @@ export PERL_MB_OPT="--install_base \"/home/lalapopa/perl5\""
 export PERL_MM_OPT="INSTALL_BASE=/home/lalapopa/perl5"
 
 # texlive 
-export MANPATH="$MANPATH:/usr/local/texlive/2022/texmf-dist/doc/man"
-export INFOPATH="$INFOPATH:/usr/local/texlive/2022/texmf-dist/doc/info"
-export PATH="/usr/local/texlive/2022/bin/x86_64-linux:$PATH"
+export MANPATH="$MANPATH:/usr/local/texlive/2023/texmf-dist/doc/man"
+export INFOPATH="$INFOPATH:/usr/local/texlive/2023/texmf-dist/doc/info"
+export PATH="/usr/local/texlive/2023/bin/x86_64-linux:$PATH"
 
 # go
 export PATH="$PATH:/usr/local/go/bin"
