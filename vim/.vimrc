@@ -11,7 +11,7 @@ set cc=80
 syntax on
 
 set nocompatible              " be iMproved, required
-filetype off                  " required
+filetype off
 
 " Runtimepath 
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -39,8 +39,8 @@ Plugin 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
 Plugin 'ap/vim-css-color'
 Plugin 'dense-analysis/ale'
 
-call vundle#end()            " required
-filetype plugin indent on    " required
+call vundle#end()
+filetype plugin indent on
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -180,20 +180,16 @@ inoremap ! !<c-g>u
 inoremap ? ?<c-g>u
 
 " Moving text 
-vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
-inoremap <C-j> <esc>:m .+1<CR>==
-inoremap <C-k> <esc>:m .-2<CR>==
-nnoremap <leader>k :m .-2<CR>==
+vnoremap J :m '>+1<CR>gv=gv
+inoremap <C-j> <esc>:m .+1<CR>==i
+inoremap <C-k> <esc>:m .-2<CR>==i
 nnoremap <leader>j :m .+1<CR>==
+nnoremap <leader>k :m .-2<CR>==
 
-" Allign view 
-noremap n nzzzv 
-nnoremap N Nzzzv
-
-" Allign view 
-noremap n nzzzv 
-nnoremap N Nzzzv
+" Align view 
+noremap n nzz 
+nnoremap N Nzz
 
 " Copy to clipboard
 vnoremap <C-c> "+y
@@ -201,6 +197,10 @@ vnoremap <C-c> "+y
 " Fuck Ex mode 
 map q: <nop>
 nnoremap Q <nop>
+
+" tmux like splits
+nnoremap <leader>" :vs<CR>
+nnoremap <leader>% :sp<CR>
 
 """""""""""""""""""
 "  some commands  "
@@ -218,7 +218,7 @@ autocmd FileType markdown,tex nmap <buffer><silent> <Leader>p :call mdip#Markdow
 
 " FZF
 nnoremap <silent> <Leader>f :Rg<CR>
-nnoremap <silent> <C-t> :Files<CR>
+nnoremap <jilent> <C-t> :Files<CR>
 autocmd FileType markdown nnoremap <Leader>r :call fzf#run({'source': 'rg -n ^ --color always', 'options': '--ansi --delimiter : --nth 3.. --preview "bat --style=full --color=always --highlight-line {2} {1}"', 'window': { 'width': 0.9, 'height': 0.6 }, 'sink': function('Format_line'), })<CR>
 
 " Change indent for html, css  
