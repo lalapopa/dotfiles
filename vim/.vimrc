@@ -218,7 +218,7 @@ autocmd FileType markdown,tex nmap <buffer><silent> <Leader>p :call mdip#Markdow
 
 " FZF
 nnoremap <silent> <Leader>f :Rg<CR>
-nnoremap <jilent> <C-t> :Files<CR>
+nnoremap <silent> <C-t> :Files<CR>
 autocmd FileType markdown nnoremap <Leader>r :call fzf#run({'source': 'rg -n ^ --color always', 'options': '--ansi --delimiter : --nth 3.. --preview "bat --style=full --color=always --highlight-line {2} {1}"', 'window': { 'width': 0.9, 'height': 0.6 }, 'sink': function('Format_line'), })<CR>
 
 " Change indent for html, css  
