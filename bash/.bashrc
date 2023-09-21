@@ -74,8 +74,8 @@ fi
 ##########
 
 # plantuml
-export PLANTUML_JAR="/usr/local/plantuml/plantuml.jar"
-export GRAPHVIZ_DOT="/usr/bin/dot"
+PLANTUML_JAR="/usr/local/plantuml/plantuml.jar"
+GRAPHVIZ_DOT="/usr/bin/dot"
 
 # perl 
 export PATH="/home/lalapopa/perl5/bin${PATH:+:${PATH}}"
@@ -94,6 +94,9 @@ export PATH="$PATH:/usr/local/go/bin"
 
 # pyenv
 export PATH="$HOME/.pyenv/bin:$PATH"
+
+# scripts 
+export PATH="$HOME/.local/bin:$PATH"
 
 
 #############
