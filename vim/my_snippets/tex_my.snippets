@@ -37,6 +37,7 @@ left=1cm, right=1cm, top=2cm, bottom=2cm, headsep=1cm, footskip=1cm
 }
 $0
 endsnippet
+
 ##################
 # Flight Dynamics#
 ##################
@@ -55,10 +56,6 @@ endsnippet
 
 snippet "m(x|y|z)a" "Moment " wr
 \bar{M}_`!p snip.rv = match.group(1)`^{\alpha}
-endsnippet
-
-snippet mxa "Mxa" 
-\bar{M}_x^{\alpha}
 endsnippet
 
 snippet mxaa "Mxa" 
@@ -149,6 +146,11 @@ snippet et "eta" w
 \eta
 endsnippet
 
+snippet cydop "Cy доп" w
+C_y^{\text{доп}}
+endsnippet
+	
+
 #################
 #  environment  #
 #################
@@ -181,6 +183,4 @@ snippet bot "bottomruler"
 \bottomrule
 endsnippet
 	
-
-
 # vim:ft=snippets:
