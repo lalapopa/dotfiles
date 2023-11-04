@@ -114,13 +114,30 @@ if ! shopt -oq posix; then
   fi
 fi
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 
 set -o vi
 export EDITOR="/usr/bin/vim"
 
-alias matlab="/home/lalapopa/matlab2021a/bin/matlab"
-alias pyenv="source ./env/bin/activate"
-alias c=clear
+###########
+#  alias  #
+###########
 
+alias diser="cd /mnt/d/Documents/Шарага/diser"
+alias cdnoty="cd /home/lalapopa/Documents/Notes" 
+alias envact="source ./env/bin/activate"
+alias c=clear
+alias c=clear
+alias ll='ls -l'
+alias la='ls -A'
+alias l='ls -CF'
+
+
+###########
+#  other  #
+###########
+
+if [ -x $HOME/.pyenv/bin/pyenv ]; then
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+fi
