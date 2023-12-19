@@ -1,0 +1,186 @@
+extends tex 
+
+snippet pre "Template"
+\usepackage{import}
+\usepackage{pdfpages}
+\usepackage{transparent}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage[
+a4paper, mag=1000, includefoot,
+left=1cm, right=1cm, top=2cm, bottom=2cm, headsep=1cm, footskip=1cm
+]{geometry}
+
+% Русский пакет
+\usepackage{polyglossia} % Поддержка многоязычности (fontspec подгружается автоматически)
+\setmainlanguage[babelshorthands=true]{russian} % Язык по-умолчанию русский с поддержкой приятных команд пакета babel
+\setotherlanguage{english} % Дополнительный язык = английский (в американской вариации по-умолчанию)
+\setmonofont{CMU Typewriter Text} % моноширинный шрифт
+\newfontfamily\cyrillicfonttt{CMU Typewriter Text} % моноширинный шрифт для кириллицы
+\defaultfontfeatures{Ligatures=TeX} % стандартные лигатуры TeX, замены нескольких дефисов на тире и т. п. Настройки моноширинного шрифта должны идти до этой строки, чтобы при врезках кода программ в коде не применялись лигатуры и замены дефисов
+\setmainfont{CMU Serif} % Шрифт с засечками
+\newfontfamily\cyrillicfont{CMU Serif} % Шрифт с засечками для кириллицы
+\setsansfont{CMU Sans Serif} % Шрифт без засечек
+\newfontfamily\cyrillicfontsf{CMU Sans Serif} % Шрифт без засечек для кириллицы
+\usepackage{luacode} 
+
+\usepackage{amsmath} %% \text 
+\usepackage{tikz} % Required for drawing custom shapes
+% Remove warning with cyrillic letters in equations 
+\usepackage{plantuml}
+
+\usepackage{silence}
+\WarningFilter{mathtext}{letter}
+\usepackage{float}
+\newcommand{\incfig}[1]{%
+        \import{./figures/}{#1.pdf_tex}
+}
+$0
+endsnippet
+
+##################
+# Flight Dynamics#
+##################
+	
+snippet mm "Formulas in line" w
+$${1:${VISUAL}}$$0
+endsnippet
+
+snippet "m(x|y|z)d" "Moment x or z or y delta" wr
+\bar{M}_`!p snip.rv = match.group(1)`^{\delta}
+endsnippet
+
+snippet "m(x|y|z)w" "Moment omega" wr
+\bar{M}_`!p snip.rv = match.group(1)`^{\omega_`!p snip.rv = match.group(1)`}
+endsnippet
+
+snippet "m(x|y|z)a" "Moment " wr
+\bar{M}_`!p snip.rv = match.group(1)`^{\alpha}
+endsnippet
+
+snippet mxaa "Mxa" 
+\bar{M}_x^{\dot{\alpha}}
+endsnippet
+
+snippet mxb "Mxb" 
+\bar{M}_x^{\beta}
+endsnippet
+
+snippet mydn "rudder moment" 
+\bar{M}_y^{\delta_н}
+endsnippet
+
+snippet myb "rudder moment" 
+\bar{M}_y^{\beta}
+endsnippet
+
+snippet mzphi "moment z phi" 
+\bar{M}_z^{\varphi}
+endsnippet
+
+snippet zb "z^\beta" 
+\bar{Z}^\beta
+endsnippet
+
+snippet ya "y^\alpha" 
+\bar{Y}^\alpha
+endsnippet
+
+snippet nzb "nz beta" 
+n_z^\beta
+endsnippet
+
+snippet nya "ny alpha" 
+n_y^\alpha
+endsnippet
+
+snippet Dny "D ny" 
+\Delta n_y
+endsnippet
+
+snippet Dmz "D mz" 
+\Delta m_z
+endsnippet
+
+snippet sqeql "power two e quation" 
+${1}p^2 + 2 ${2:h_б}p + ${3:\omega_Б^2} 
+endsnippet
+
+snippet vi "description"
+V_{ин}
+endsnippet	
+
+snippet w_ "omega_ " w
+\omega_${1}
+endsnippet
+
+snippet d_ "delta_" w
+\delta_${1}
+endsnippet
+
+snippet wsr "description" 
+\omega_{ср}
+endsnippet
+
+snippet th "theta" w
+\vartheta
+endsnippet
+
+snippet tx "text" w
+\text{$1}
+endsnippet
+
+snippet -> "ra"
+\rightarrow
+endsnippet
+
+snippet oo "infinty" i
+\infty
+endsnippet
+
+snippet ze "zeta" w
+\zeta
+endsnippet
+
+snippet et "eta" w
+\eta
+endsnippet
+
+snippet cydop "Cy доп" w
+C_y^{\text{доп}}
+endsnippet
+	
+
+#################
+#  environment  #
+#################
+
+snippet lst "lst environment"
+\begin{lstlisting}[language=$1, style=$2]
+
+\end{lstlisting}
+endsnippet
+
+snippet mini "minipage environment"
+\begin{minipage}{$1\textwidth}
+$2
+\end{minipage}
+endsnippet
+
+#############
+#  general  #
+#############
+
+snippet top "topruler"
+\toprule
+endsnippet
+
+snippet mid "midruler"
+\midrule
+endsnippet
+	
+snippet bot "bottomruler"
+\bottomrule
+endsnippet
+	
+# vim:ft=snippets:

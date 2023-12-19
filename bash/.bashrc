@@ -23,43 +23,15 @@ HISTFILESIZE=2000
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-# If set, the pattern "**" used in a pathname expansion context will
-# match all files and zero or more directories and subdirectories.
-#shopt -s globstar
-
-# make less more friendly for non-text input files, see lesspipe(1)
-#[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
-fi
-
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
     xterm-color|*-256color) color_prompt=yes;;
 esac
 
-# uncomment for a colored prompt, if the terminal has the capability; turned
-# off by default to not distract the user: the focus in a terminal window
-# should be on the output of commands, not on the prompt
-#force_color_prompt=yes
-
-if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
-    else
-	color_prompt=
-    fi
-fi
-
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;33m\]\u@\h\[\033[33m\]:\[\033[01;33m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;94m\]\u@\h\[\033[94m\]\[\033[01;94m\](\W)\[\033[0m\]\[\033[1;31m\]$\[\e[m\] '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:(\W)\$ '
 fi
 unset color_prompt force_color_prompt
 
@@ -76,30 +48,12 @@ esac
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
 
-    #alias grep='grep --color=auto'
-    #alias fgrep='fgrep --color=auto'
-    #alias egrep='egrep --color=auto'
-fi
-
-# colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
-# some more ls aliases
-#alias ll='ls -l'
-#alias la='ls -A'
-#alias l='ls -CF'
-
-
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
 fi
 
 # enable programmable completion features (you don't need to enable
@@ -115,17 +69,63 @@ fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
+##########
+#  path  #
+##########
+
+# plantuml
+PLANTUML_JAR="/usr/local/plantuml/plantuml.jar"
+GRAPHVIZ_DOT="/usr/bin/dot"
+
+# perl 
+export PATH="/home/lalapopa/perl5/bin${PATH:+:${PATH}}"
+export PERL5LIB="/home/lalapopa/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"
+export PERL_LOCAL_LIB_ROOT="/home/lalapopa/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"
+export PERL_MB_OPT="--install_base \"/home/lalapopa/perl5\""
+export PERL_MM_OPT="INSTALL_BASE=/home/lalapopa/perl5"
+
+# texlive 
+export MANPATH="$MANPATH:/usr/local/texlive/2023/texmf-dist/doc/man"
+export INFOPATH="$INFOPATH:/usr/local/texlive/2023/texmf-dist/doc/info"
+export PATH="/usr/local/texlive/2023/bin/x86_64-linux:$PATH"
+
+# go
+export PATH="$PATH:/usr/local/go/bin"
+
+# pyenv
+export PATH="$HOME/.pyenv/bin:$PATH"
+
+# scripts 
+export PATH="$HOME/.local/bin:$PATH"
 
 
-PATH="/home/lalapopa/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/home/lalapopa/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/home/lalapopa/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/home/lalapopa/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/lalapopa/perl5"; export PERL_MM_OPT;
+#############
+#  exports  #
+#############
+
+export PROMPT_COMMAND="history -a; history -n"
+
+# colored GCC warnings and errors
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
+###########
+#  alias  #
+###########
+
+alias envact="source ./env/bin/activate"
+alias c=clear
+alias ll='ls -l'
+alias la='ls -A'
+alias l='ls -CF'
+
+###########
+#  other  #
+###########
 
 set -o vi
 
-alias matlab="/home/lalapopa/matlab2021a/bin/matlab"
-alias pyenv="source ./env/bin/activate"
-alias c=clear
+if [ -x $HOME/.pyenv/bin/pyenv ]; then
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+fi
 

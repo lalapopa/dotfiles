@@ -1,9 +1,10 @@
 urxvt.perl-ext-common: default,eval,resize-font
 
-URxvt.font: xft:iosevka:size=12,xft:Symbola,xft:Noto Emoji:minspace=False
+URxvt.font: xft:iosevka:size=12,xft:Symbola,xft:Noto Emoji:minspace=False,xtf:Font Awesome 6 Duotone-Solid-900:size=12
 
 URxvt.scrollBar: false
 URxvt.iso14755: false
+URxvt.internalBorder: 0
 
 URxvt.cursorBlink: true
 URxvt.cursorColor: #dfdfdd
@@ -20,41 +21,41 @@ URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
 
 !! Colorscheme
 ! special
-*.foreground: #dfdfdd
+*.foreground: #D1D0D1 
 *.background: #000000
 *.cursorColor: #dfdfdd
 
 ! black
-*.color0: #263640
-*.color8: #4a697d
+*.color0: #252525 
+*.color8: #3F3F3F 
 
 ! red
-*.color1: #d12f2c
-*.color9: #fa3935
+*.color1: #9B1300 
+*.color9: #730B00 
 
 ! green
 *.color2: #3e8701
 *.color10: #46ab6e
 
 ! yellow
-*.color3: #e5b560
-*.color11: #e5b560
+*.color3: #DFBC72 
+*.color11: #FFDE99 
 
 ! blue
-*.color4: #2587cc
-*.color12: #2ca2f5
+*.color4: #719CDF 
+*.color12: #007299 
 
 ! magenta
 *.color5: #696ebf
-*.color13: #8086e8
+*.color13: #98BEDE 
 
 ! cyan
 *.color6: #289c93
 *.color14: #33c5ba
 
 ! white
-*.color7: #bfbaac
-*.color15: #fdf6e3
+*.color7: #F1F1F1 
+*.color15: #BFBFBF 
 
 URxvt.transparent: true
 URxvt.shading: 20

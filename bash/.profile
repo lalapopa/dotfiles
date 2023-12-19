@@ -15,19 +15,3 @@ if [ -n "$BASH_VERSION" ]; then
 	. "$HOME/.bashrc"
     fi
 fi
-
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
-fi
-
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
-fi
-
-export MANPATH="$MANPATH:/usr/local/texlive/2022/texmf-dist/doc/man"
-export INFOPATH="$INFOPATH:/usr/local/texlive/2022/texmf-dist/doc/info"
-export PATH=$PATH:/usr/local/texlive/2022/bin/x86_64-linux
-export PATH=$PATH:/usr/local/go/bin
-

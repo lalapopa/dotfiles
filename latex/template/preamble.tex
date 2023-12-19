@@ -1,0 +1,35 @@
+\usepackage{import}
+\usepackage{pdfpages}
+\usepackage{transparent}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage[
+a4paper, mag=1000, includefoot,
+left=1cm, right=1cm, top=2cm, bottom=2cm, headsep=1cm, footskip=1cm
+]{geometry}
+
+% Русский пакет
+\usepackage{polyglossia} % Поддержка многоязычности (fontspec подгружается автоматически)
+\setmainlanguage[babelshorthands=true]{russian} % Язык по-умолчанию русский с поддержкой приятных команд пакета babel
+\setotherlanguage{english} % Дополнительный язык = английский (в американской вариации по-умолчанию)
+\setmonofont{CMU Typewriter Text} % моноширинный шрифт
+\newfontfamily\cyrillicfonttt{CMU Typewriter Text} % моноширинный шрифт для кириллицы
+\defaultfontfeatures{Ligatures=TeX} % стандартные лигатуры TeX, замены нескольких дефисов на тире и т. п. Настройки моноширинного шрифта должны идти до этой строки, чтобы при врезках кода программ в коде не применялись лигатуры и замены дефисов
+\setmainfont{CMU Serif} % Шрифт с засечками
+\newfontfamily\cyrillicfont{CMU Serif} % Шрифт с засечками для кириллицы
+\setsansfont{CMU Sans Serif} % Шрифт без засечек
+\newfontfamily\cyrillicfontsf{CMU Sans Serif} % Шрифт без засечек для кириллицы
+\usepackage{luacode} 
+
+\usepackage{amsmath} %% \text 
+\usepackage{tikz} % Required for drawing custom shapes
+% Remove warning with cyrillic letters in equations 
+\usepackage{plantuml}
+
+\usepackage{silence}
+\WarningFilter{mathtext}{letter}
+\usepackage{float}
+\newcommand{\incfig}[1]{%
+        \import{./figures/}{#1.pdf_tex}
+}
+
