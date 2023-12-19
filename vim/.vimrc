@@ -37,6 +37,9 @@ Plugin 'chrisbra/csv.vim'
 Plugin 'reedes/vim-lexical'
 Plugin 'psf/black'
 Plugin 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
+Plugin 'google/vim-maktaba'
+Plugin 'google/vim-codefmt'
+Plugin 'google/vim-glaive'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -138,6 +141,11 @@ augroup black_on_save
     autocmd BufWritePre *.py Black
 augroup end
 
+" vim-codefmt cpp  
+augroup autoformat_settings
+    autocmd FileType c,cpp,proto,javascript,arduino AutoFormatBuffer clang-format
+augroup END
+
 """"""""""""""
 "  mappings  "
 """"""""""""""
@@ -182,6 +190,10 @@ nnoremap N Nzzzv
 " Copy to clipboard
 vnoremap <C-c> "+y
 
+" Fuck Ex mode 
+map q: <nop>
+nnoremap Q <nop>
+
 """""""""""""""""""
 "  some commands  "
 """""""""""""""""""
@@ -200,7 +212,7 @@ nnoremap <silent> <C-t> :Files<CR>
 autocmd FileType markdown nnoremap <Leader>r :call fzf#run({'source': 'rg -n ^ --color always', 'options': '--ansi --delimiter : --nth 3.. --preview "bat --style=full --color=always --highlight-line {2} {1}"', 'window': { 'width': 0.9, 'height': 0.6 }, 'sink': function('Format_line'), })<CR>
 
 " Change indent for html, css  
-autocmd BufRead,BufNewFile *.htm,*.html,*.css setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd BufRead,BufNewFile *.htm,*.html,*.css,*.cpp,*.hpp setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
 " Bracey
 autocmd FileType html nnoremap <Leader>ll :Bracey<CR>
