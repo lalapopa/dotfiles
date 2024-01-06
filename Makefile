@@ -1,6 +1,6 @@
 SHELL := /usr/bin/bash
 
-
+define create_folder
 	if [ ! -d $(1) ]; then \
 		mkdir -p $(1); \
 	fi;
