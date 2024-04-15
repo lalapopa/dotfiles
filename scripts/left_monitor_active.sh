@@ -1,7 +1,7 @@
 #!/bin/env bash  
 
 display_connect() {
-    xrandr --output eDP --primary --mode 1920x1080 --pos 1520x1440 --rotate normal --output HDMI-A-0 --mode 3440x1440 --pos 0x0 --rotate normal --output DisplayPort-0 --off & feh --bg-scale ${HOME}/Pictures/wide_bg.jpg;
+    xrandr --output eDP --primary --mode 1920x1080 --pos 1520x1440 --rotate normal --output HDMI-A-0 --mode 3440x1440 --pos 0x0 -r 120 --rotate normal --output DisplayPort-0 --off & feh --bg-scale ${HOME}/Pictures/wide_bg.jpg;
 }
 display_disconnect() {
     xrandr --output HDMI-A-0 --off & feh --bg-scale ${HOME}/Pictures/new_bg.jpg;
