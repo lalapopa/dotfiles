@@ -67,7 +67,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 ##########
 #  path  #
@@ -129,3 +128,5 @@ if [ -x $HOME/.pyenv/bin/pyenv ]; then
     eval "$(pyenv virtualenv-init -)"
 fi
 
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
