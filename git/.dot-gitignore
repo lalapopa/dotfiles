@@ -28,6 +28,7 @@ __pycache__
 *.aux
 *.fdb_latexmk
 *.xdv
+*blx.bib
 
 ---------------------
 -  matlab/simulink  -

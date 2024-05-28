@@ -155,7 +155,8 @@ endfunction
 autocmd BufWritePost *.py call BlackOnSave() 
 
 " ALE
-let g:ale_python_pylint_options = '--load-plugins=pylint_django'
+let b:ale_fixers = ['prettier', 'eslint']
+set omnifunc=ale#completion#OmniFunc
 
 
 """"""""""""""
