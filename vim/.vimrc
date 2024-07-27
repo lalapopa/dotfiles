@@ -145,14 +145,24 @@ augroup lexical
   autocmd FileType text call lexical#init({ 'spell': 0 })
 augroup END
 
-
 " Black (u need to install black in command line) 
 function! BlackOnSave()
     mark \"    
     silent :%!black -q - < % 
     silent! exe "normal! g`\""
 endfunction
+
+function! JsbeautifierOnSave()
+    mark \"
+    silent :%!js-beautify --stdin < %
+    silent! exe "normal! g`\""
+endfunction 
+
+
 autocmd BufWritePost *.py call BlackOnSave() 
+
+" js-beautify
+autocmd BufWritePost *.js call JsbeautifierOnSave()
 
 " ALE
 let b:ale_fixers = ['prettier', 'eslint']
