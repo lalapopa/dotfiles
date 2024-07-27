@@ -10,7 +10,7 @@ endef
 all: download_tools dotfiles 
 
 download_tools: 
-	sudo -S apt-get update && sudo -S apt-get -y install vim tmux git fzf alacritty xclip ripgrep;
+	sudo -S apt-get update && sudo -S apt-get -y install vim-gtk3 tmux xclip ripgrep;
 	if [ ! -d "$(HOME)/.vim/bundle/Vundle.vim" ]; then \
 		git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim; \
 	fi;
@@ -24,6 +24,7 @@ dotfiles:
 	vim +PluginInstall +qall;
 	$(call create_folder,"$(HOME)/.config/alacritty")
 	$(call create_folder,"$(HOME)/.config/fontconfig")
+	ln -snf $(CURDIR)/alacritty/* $(HOME)/.config/alacritty;
 	ln -snf $(CURDIR)/zathura/* $(HOME)/.config/zathura;
 	ln -snf $(CURDIR)/fontconfig/* $(HOME)/.config/fontconfig;
 	ln -snf $(CURDIR)/tmux/.tmux.conf $(HOME);
@@ -39,5 +40,3 @@ download_font:
 	mkdir -p $(HOME)/.local/share/fonts/
 	unzip /tmp/fonts.zip -d $(HOME)/.local/share/fonts/
 	fc-cache -f -v
-
-

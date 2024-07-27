@@ -1,0 +1,17 @@
+{
+  "workbench.startupEditor": "none",
+  "editor.fontFamily": "Iosevka",
+  "editor.codeLensFontFamily": "Iosevka",
+  "editor.cursorStyle": "block",
+  "window.zoomLevel": 1,
+  "explorer.confirmDelete": false,
+  "editor.lineNumbers": "relative",
+  "git.openRepositoryInParentFolders": "never",
+  "editor.formatOnSave": true,
+  "python.languageServer": "Pylance",
+  "editor.defaultFormatter": "ms-python.vscode-pylance",
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+  "git.autofetch": true
+}

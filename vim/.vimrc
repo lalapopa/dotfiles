@@ -124,6 +124,7 @@ let g:fzf_layout = { 'down': '30%' }
 autocmd! FileType fzf
 autocmd  FileType fzf set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 
 function! Format_line(line)
     let file = split(a:line, ":")[0]
