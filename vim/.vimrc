@@ -227,7 +227,7 @@ nnoremap <silent> <C-t> :Files<CR>
 autocmd FileType markdown nnoremap <Leader>r :call fzf#run({'source': 'rg -n ^ --color always', 'options': '--ansi --delimiter : --nth 3.. --preview "bat --style=full --color=always --highlight-line {2} {1}"', 'window': { 'width': 0.9, 'height': 0.6 }, 'sink': function('Format_line'), })<CR>
 
 " Change indent for html, css  
-autocmd BufRead,BufNewFile *.htm,*.html,*.css setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd BufRead,BufNewFile *.htm,*.html,*.css,*.ino setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
 " Bracey
 autocmd FileType html nnoremap <Leader>ll :Bracey<CR>

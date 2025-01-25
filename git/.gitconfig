@@ -7,4 +7,14 @@
 	excludesfile = /home/lalapopa/.dot-gitignore
     editor = vim
 	compression = 0
-
+    packedGitLimit = 512m
+    packedGitWindowSize = 512m
+[pack]
+    deltaCacheSize = 2047m
+    packSizeLimit = 2047m
+    windowMemory = 2047m
+[http]
+	postBuffer = 1048576000
+	version = HTTP/1.1
+[https]
+	postBuffer = 1048576000
