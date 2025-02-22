@@ -10,7 +10,7 @@ set noshowmode
 set cc=80
 syntax on
 
-set nocompatible              " be iMproved, required
+set nocompatible " be iMproved, required
 filetype off
 
 " Runtimepath 
@@ -153,7 +153,16 @@ function! BlackOnSave()
     silent :%!black -q - < % 
     silent! exe "normal! g`\""
 endfunction
-autocmd BufWritePost *.py call BlackOnSave() 
+autocmd BufWritePost *.py call BlackOnSave()
+
+" clang-format 
+function! ClangFormatOnSave()
+    mark \"
+    silent :%!clang-format < %
+    silent! exe "normal! g`\""
+endfunction
+
+autocmd BufWritePost *.ino,*.c,*.cpp call  ClangFormatOnSave()
 
 " ALE
 let g:ale_python_pylint_options = '--load-plugins=pylint_django'
