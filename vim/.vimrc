@@ -135,7 +135,7 @@ function! Format_line(line)
 endfunction
 
 " spell-check
-let g:spellfile_URL = 'https://ftp.nluug.nl/vim/runtime/spell'
+let g:spellfile_URL = "https://ftp.nluug.nl/vim/runtime/spell/"
 let g:lexical#spelllang = ['en_us','ru']
 
 augroup lexical

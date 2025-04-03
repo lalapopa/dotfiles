@@ -1,8 +1,10 @@
 #!/bin/sh
 
+# Run as sudo bc stupid immich library created as root I guess
+
 # Paths
-UPLOAD_LOCATION="/home/lalapopa/Lab/immich/library"
-BACKUP_PATH="/home/lalapopa/Lab/backup"
+UPLOAD_LOCATION="/home/lalaserver/Lab/immich/library"
+BACKUP_PATH="/home/lalaserver/Lab/backup"
 
 ### Local
 # Backup Immich database
