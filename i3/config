@@ -8,11 +8,8 @@
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock -- lock
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
 
-exec --no-startup-id picom --config $HOME/.config/picom.conf --experimental-backends
+exec --no-startup-id picom --config $HOME/.config/picom.conf
 
 # Autoconnect second montior
 exec_always --no-startup-id ${HOME}/.dotfiles/scripts/left_monitor_active.sh
@@ -21,7 +18,7 @@ exec_always --no-startup-id ${HOME}/.dotfiles/scripts/left_monitor_active.sh
 exec_always --no-startup-id ${HOME}/.config/polybar/launch.sh
 
 # Change wallpaper picture
-exec_always --no-startup-id feh --bg-fill ${HOME}/Pictures/bg_cat.png
+exec_always --no-startup-id feh --bg-fill ${HOME}/Pictures/bg_cat.jpg
 
 # Language changing
 exec_always "setxkbmap -layout us,ru"
@@ -54,7 +51,7 @@ for_window [class="MATLAB R2021a"] floating enable
 ##############
 
 # start a terminal
-bindsym $mod+Return exec /home/lalapopa/Downloads/cool-retro-term/cool-retro-term 
+bindsym $mod+Return exec alacritty 
 
 # kill focused window
 bindsym $mod+Shift+q kill

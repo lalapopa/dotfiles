@@ -10,7 +10,7 @@ endef
 all: download_tools dotfiles 
 
 download_tools: 
-	sudo -S apt-get update && sudo -S apt-get -y install vim tmux i3 git fzf alacritty polybar xclip ripgrep;
+	sudo pacman -S vim tmux i3 git fzf alacritty polybar xclip ripgrep;
 	if [ ! -d "$(HOME)/.vim/bundle/Vundle.vim" ]; then \
 		git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim; \
 	fi;
@@ -47,8 +47,10 @@ dotfiles:
 
 download_font:
 	wget https://github.com/be5invis/Iosevka/releases/download/v15.3.1/super-ttc-iosevka-15.3.1.zip -O /tmp/fonts.zip;
+	git clone https://github.com/oathanrex/font-awesome-pro.git /tmp/font-awesome;
 	mkdir -p $(HOME)/.local/share/fonts/
 	unzip /tmp/fonts.zip -d $(HOME)/.local/share/fonts/
+	cp /tmp/font-awesome-pro/fontawesome-pro-6.5.2-desktop/otfs/* $(HOME)/.local/share/fonts
 	fc-cache -f -v
 
 

@@ -11,11 +11,15 @@ configuration {
     hide-scrollbar: true;
     scrollbar-width: 4;
 
+
     kb-remove-char-back: "BackSpace";
     kb-remove-to-eol: "Control+Shift+e";
     kb-accept-entry: "Control+m,Return,KP_Enter";
     kb-mode-previous: "Shift+Left,Control+Shift+Tab,Control+h";
     kb-row-up: "Up,Control+k,Shift+Tab,Shift+ISO_Left_Tab";
     kb-row-down: "Down,Control+j";
+}
+window {
+    location: west;
 }
 @theme "/home/lalapopa/.config/rofi/themes/rounded-github-dark.rasi"

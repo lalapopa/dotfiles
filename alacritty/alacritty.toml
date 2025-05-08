@@ -1,0 +1,103 @@
+[[colors.indexed_colors]]
+color = "0xd18616"
+index = 16
+
+[[colors.indexed_colors]]
+color = "0xf97583"
+index = 17
+
+[colors.bright]
+black = "0x959da5"
+blue = "0x79b8ff"
+cyan = "0x56d4dd"
+green = "0x85e89d"
+magenta = "0xb392f0"
+red = "0xf97583"
+white = "0xfafbfc"
+yellow = "0xffea7f"
+
+[colors.cursor]
+cursor = "CellForeground"
+text = "CellBackground"
+
+[colors.footer_bar]
+background = "#282a36"
+foreground = "#f8f8f2"
+
+[colors.hints.end]
+background = "#282a36"
+foreground = "#f1fa8c"
+
+[colors.hints.start]
+background = "#f1fa8c"
+foreground = "#282a36"
+
+[colors.line_indicator]
+background = "None"
+foreground = "None"
+
+[colors.normal]
+black = "0x586069"
+blue = "0x2188ff"
+cyan = "0x39c5cf"
+green = "0x34d058"
+magenta = "0xb392f0"
+red = "0xea4a5a"
+white = "0xd1d5da"
+yellow = "0xffea7f"
+
+[colors.primary]
+background = "0x24292e"
+bright_foreground = "#ffffff"
+foreground = "0xd1d5da"
+
+[colors.search.focused_match]
+background = "#ffb86c"
+foreground = "#44475a"
+
+[colors.search.matches]
+background = "#50fa7b"
+foreground = "#44475a"
+
+[colors.selection]
+background = "#44475a"
+text = "CellForeground"
+
+[colors.vi_mode_cursor]
+cursor = "CellForeground"
+text = "CellBackground"
+
+[cursor]
+blink_interval = 500
+
+[cursor.style]
+blinking = "Always"
+shape = "Block"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 9
+
+[font.bold]
+family = "monospace"
+style = "Bold"
+
+[font.bold_italic]
+family = "monospace"
+style = "Bold Italic"
+
+[font.italic]
+family = "monospace"
+style = "Italic"
+
+[font.normal]
+family = "monospace"
+style = "Regular"
+
+[window]
+opacity = 0.84
+
+[window.padding]
+x = 1

@@ -158,11 +158,20 @@ function! JsbeautifierOnSave()
     silent! exe "normal! g`\""
 endfunction 
 
-
 autocmd BufWritePost *.py call BlackOnSave() 
 
 " js-beautify
 autocmd BufWritePost *.js call JsbeautifierOnSave()
+
+" clang-format 
+function! ClangFormatOnSave()
+    mark \"
+    silent :%!clang-format < %
+    silent! exe "normal! g`\""
+endfunction
+
+autocmd BufWritePost *.ino,*.c,*.cpp call  ClangFormatOnSave()
+
 
 " ALE
 let b:ale_fixers = ['prettier', 'eslint']
