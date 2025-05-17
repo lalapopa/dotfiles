@@ -10,7 +10,7 @@ endef
 all: download_tools dotfiles 
 
 download_tools: 
-	sudo pacman -S vim tmux i3 git fzf alacritty polybar xclip ripgrep;
+	sudo pacman -S gvim tmux i3 git fzf alacritty polybar xclip ripgrep imagemagick;
 	if [ ! -d "$(HOME)/.vim/bundle/Vundle.vim" ]; then \
 		git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim; \
 	fi;

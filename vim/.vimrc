@@ -9,6 +9,7 @@ set scrolloff=8
 set noshowmode
 set cc=80
 syntax on
+set clipboard=unnamedplus
 
 set nocompatible              " be iMproved, required
 filetype off
@@ -172,11 +173,14 @@ endfunction
 
 autocmd BufWritePost *.ino,*.c,*.cpp call  ClangFormatOnSave()
 
-
 " ALE
 let b:ale_fixers = ['prettier', 'eslint']
-set omnifunc=ale#completion#OmniFunc
+let g:ale_linters = {'c': []}
 
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+set omnifunc=ale#completion#OmniFunc
 
 """"""""""""""
 "  mappings  "

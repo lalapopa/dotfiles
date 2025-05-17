@@ -7,8 +7,7 @@
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock -- lock
-
+exec --no-startup-id xss-lock -- ${HOME}/.dotfiles/scripts/lock.sh
 exec --no-startup-id picom --config $HOME/.config/picom.conf
 
 # Autoconnect second montior
@@ -21,8 +20,7 @@ exec_always --no-startup-id ${HOME}/.config/polybar/launch.sh
 exec_always --no-startup-id feh --bg-fill ${HOME}/Pictures/bg_cat.jpg
 
 # Language changing
-exec_always "setxkbmap -layout us,ru"
-exec_always "setxkbmap -option grp:win_space_toggle us,ru"
+exec_always "setxkbmap -layout us,ru -option grp:win_space_toggle"
 
 ##############
 #  settings  #
@@ -178,7 +176,7 @@ client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-col
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #40bfff
 
 # Lock screen
-bindsym $mod+shift+x exec "setxkbmap -layout us && lock && setxkbmap -layout us,ru"
+bindsym $mod+shift+x exec ${HOME}/.dotfiles/scripts/lock.sh
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -192,7 +190,8 @@ bindsym XF86MonBrightnessUp exec brightnessctl set +5% # increase screen brightn
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%- # decrease screen brightness
 
 # Suspend system using power button 
-bindsym XF86PowerOff exec --no-startup-id "lock; systemctl suspend"
+# bindsym XF86PowerOff exec systemctl suspend
+# change in /etc/systemd/logind.conf
 
 # Take area screenshot and copy to clipboard
 bindsym --release Print exec import ~/Pictures/ss.png && xclip -selection clipboard -t image/png -i ~/Pictures/ss.png 

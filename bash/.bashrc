@@ -77,13 +77,6 @@ fi
 PLANTUML_JAR="/usr/local/plantuml/plantuml.jar"
 GRAPHVIZ_DOT="/usr/bin/dot"
 
-# perl 
-export PATH="/home/lalapopa/perl5/bin${PATH:+:${PATH}}"
-export PERL5LIB="/home/lalapopa/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"
-export PERL_LOCAL_LIB_ROOT="/home/lalapopa/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"
-export PERL_MB_OPT="--install_base \"/home/lalapopa/perl5\""
-export PERL_MM_OPT="INSTALL_BASE=/home/lalapopa/perl5"
-
 # texlive 
 export MANPATH="$MANPATH:/usr/local/texlive/2023/texmf-dist/doc/man"
 export INFOPATH="$INFOPATH:/usr/local/texlive/2023/texmf-dist/doc/info"
@@ -94,10 +87,6 @@ export PATH="$PATH:/usr/local/go/bin"
 
 # pyenv
 export PATH="$HOME/.pyenv/bin:$PATH"
-
-# scripts 
-export PATH="$HOME/.local/bin:$PATH"
-
 
 #############
 #  exports  #
