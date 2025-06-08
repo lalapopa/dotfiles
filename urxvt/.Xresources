@@ -59,5 +59,9 @@ URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
 
 URxvt.transparent: true
 URxvt.shading: 20
-Xcursor.size: 16
+Xcursor.size: 24 
+
+! These might also be useful depending on your monitor and personal preference:
+Xft.dpi: 96 
+Xft.antialias: 1
 

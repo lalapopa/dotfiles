@@ -102,6 +102,7 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 ###########
 
 alias envact="source ./env/bin/activate"
+alias idfact='. $HOME/Lab/esp/esp-idf/export.sh'
 alias c=clear
 alias ll='ls -l'
 alias la='ls -A'

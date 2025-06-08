@@ -3,7 +3,7 @@
   "editor.fontFamily": "Iosevka",
   "editor.codeLensFontFamily": "Iosevka",
   "editor.cursorStyle": "block",
-  "window.zoomLevel": 1,
+  "window.zoomLevel": 1.5,
   "explorer.confirmDelete": false,
   "editor.lineNumbers": "relative",
   "git.openRepositoryInParentFolders": "never",
