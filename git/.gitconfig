@@ -7,4 +7,6 @@
 	excludesfile = /home/lalapopa/.dot-gitignore
     editor = vim
 	compression = 0
+[init]
+  defaultBranch = main
 
