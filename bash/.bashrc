@@ -88,6 +88,10 @@ export PATH="$PATH:/usr/local/go/bin"
 # pyenv
 export PATH="$HOME/.pyenv/bin:$PATH"
 
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
 #############
 #  exports  #
 #############
