@@ -1,5 +1,5 @@
-UPLOAD_LOCATION="/home/lalaserver/Lab/immich/library"       # Immich database location, as set in your .env file
-BACKUP_PATH="/home/lalaserver/Lab/backup"
+UPLOAD_LOCATION="/mnt/media/Lab/immich/library"       # Immich database location, as set in your .env file
+BACKUP_PATH="/mnt/media/Lab/immich"
 
-mkdir "$UPLOAD_LOCATION/database-backup"
+mkdir -p "$UPLOAD_LOCATION/database-backup"
 borg init --encryption=none "$BACKUP_PATH/immich-borg"

@@ -1,4 +1,4 @@
-BACKUP_PATH="/home/lalaserver/Lab/backup"
-mkdir /tmp/immich-mountpoint
-borg mount -o allow_other -f "$BACKUP_PATH"/immich-borg /tmp/immich-mountpoint
-cd /tmp/immich-mountpoint
+BACKUP_PATH="/mnt/media/Lab/immich"
+mkdir /mnt/media/tmp/immich-mountpoint
+borg mount -o allow_other -f "$BACKUP_PATH"/immich-borg /mnt/media/tmp/immich-mountpoint
+cd /mnt/media/tmp/immich-mountpoint
