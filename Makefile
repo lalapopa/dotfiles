@@ -22,11 +22,6 @@ download_tools:
 
 dotfiles:
 	vim +PluginInstall +qall;
-	$(call create_folder,"$(HOME)/.config/alacritty")
-	$(call create_folder,"$(HOME)/.config/fontconfig")
-	ln -snf $(CURDIR)/alacritty/* $(HOME)/.config/alacritty;
-	ln -snf $(CURDIR)/zathura/* $(HOME)/.config/zathura;
-	ln -snf $(CURDIR)/fontconfig/* $(HOME)/.config/fontconfig;
 	ln -snf $(CURDIR)/tmux/.tmux.conf $(HOME);
 	ln -snf $(CURDIR)/vim/.vimrc $(HOME);
 	ln -snf $(CURDIR)/vim/my_snippets $(HOME)/.vim;
@@ -34,9 +29,3 @@ dotfiles:
 	ln -snf $(CURDIR)/bash/.profile $(HOME);
 	ln -snf $(CURDIR)/git/.gitconfig $(HOME);
 	ln -snf $(CURDIR)/git/.dot-gitignore $(HOME);
-
-download_font:
-	wget https://github.com/be5invis/Iosevka/releases/download/v15.3.1/super-ttc-iosevka-15.3.1.zip -O /tmp/fonts.zip;
-	mkdir -p $(HOME)/.local/share/fonts/
-	unzip /tmp/fonts.zip -d $(HOME)/.local/share/fonts/
-	fc-cache -f -v
