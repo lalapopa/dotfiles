@@ -9,6 +9,8 @@
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock -- ${HOME}/.dotfiles/scripts/lock.sh
 exec --no-startup-id picom --config $HOME/.config/picom.conf
+exec --no-startup-id xet s 0 0 dpms 6000 6000 6000 
+
 
 # Autoconnect second montior
 exec_always --no-startup-id ${HOME}/.dotfiles/scripts/left_monitor_active.sh
