@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-SINK=$(pactl list short sinks | grep RUNNING | cut -f1)
+SINK=$(pactl list short sinks | grep RUNNING | grep bluez | cut -f1)
 
 if [ "$SINK" == "" ]; then
   SINK="0"
